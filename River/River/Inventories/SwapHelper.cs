@@ -19,6 +19,7 @@ namespace River
             Storage,
             Enchanting,
         }
+
         private static ConnectionType Connection = ConnectionType.None;
 
         public static Texture2D IconSelector;

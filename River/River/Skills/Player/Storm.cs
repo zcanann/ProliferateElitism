@@ -11,7 +11,7 @@ namespace River.Skills
 {
     class Storm : DamageEmitter
     {
-        private const int MaxChains = 1;
+        private const int MaxChains = 4;
         private int ChainCounter;
 
         public Storm(
@@ -68,8 +68,8 @@ namespace River.Skills
             MainEffect.ParticleTextureAssetName = @"Content\Textures\UI\AttributeParticle";
             SecondaryEffect.ParticleTexture = ParticleTexture;
             SecondaryEffect.ParticleTextureAssetName = @"Content\Textures\UI\AttributeParticle";
-            MainEffect.Initialise(750, 20);
-            SecondaryEffect.Initialise(750, 20);
+            MainEffect.Initialise(250, 20);
+            SecondaryEffect.Initialise(250, 20);
 
         }
 
