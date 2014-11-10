@@ -170,3 +170,5 @@ C:\Users\Zachary\documents\visual studio 2010\Projects\River\River\River\bin\x86
 C:\Users\Zachary\documents\visual studio 2010\Projects\River\River\River\bin\x86\Debug\ProjectMercury.dll
 C:\Users\Zachary\documents\visual studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\AttributeParticle.xnb
 C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\AttributeParticle.xnb
+C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\GameDatabase.sdf
+C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\River.exe.config

@@ -29,8 +29,9 @@ namespace River
             //for (int ecx = 0; ecx < InventorySlots; ecx++)
             //    Items[ecx] = new Items.Junk(0, 0);
 
-            for (int ecx = 0; ecx < InventoryRowSize * 2; ecx++)
-                Items[ecx] = new Items.Feet(0, Player.MaxMagicFind);
+            //Create shoes/boots for debugging
+            //for (int ecx = 0; ecx < InventoryRowSize * 2; ecx++)
+            //    Items[ecx] = new Items.Feet(0, Player.MaxMagicFind);
 
             BasePosition.X = Main.BackBufferWidth / 2 + (Main.BackBufferWidth / 2 - InventoryRowSize * Item.IconSize) / 2;
             BasePosition.Y = Item.IconSize;

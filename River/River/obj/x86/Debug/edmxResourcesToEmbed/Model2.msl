@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GameDatabaseModelStoreContainer" CdmEntityContainer="GameDatabase">
+    <EntitySetMapping Name="Enemies">
+      <EntityTypeMapping TypeName="GameDatabaseModel.Enemy">
+        <MappingFragment StoreEntitySet="Enemy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnemyManagers">
+      <EntityTypeMapping TypeName="GameDatabaseModel.EnemyManager">
+        <MappingFragment StoreEntitySet="EnemyManager">
+          <ScalarProperty Name="EnemyID" ColumnName="EnemyID" />
+          <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GameObjects">
+      <EntityTypeMapping TypeName="GameDatabaseModel.GameObject">
+        <MappingFragment StoreEntitySet="GameObject">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="GameDatabaseModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="GameDatabaseModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="Armor" ColumnName="Armor" />
+          <ScalarProperty Name="Primary" ColumnName="Primary" />
+          <ScalarProperty Name="Vitality" ColumnName="Vitality" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Attack" ColumnName="Attack" />
+          <ScalarProperty Name="AttackSpeedBonus" ColumnName="AttackSpeedBonus" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectManagers">
+      <EntityTypeMapping TypeName="GameDatabaseModel.ObjectManager">
+        <MappingFragment StoreEntitySet="ObjectManager">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="GameDatabaseModel.Player">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

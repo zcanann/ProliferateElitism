@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GameDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="GameDatabase" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Enemies" EntityType="GameDatabaseModel.Enemy" />
+    <EntitySet Name="EnemyManagers" EntityType="GameDatabaseModel.EnemyManager" />
+    <EntitySet Name="GameObjects" EntityType="GameDatabaseModel.GameObject" />
+    <EntitySet Name="Inventories" EntityType="GameDatabaseModel.Inventory" />
+    <EntitySet Name="Items" EntityType="GameDatabaseModel.Item" />
+    <EntitySet Name="ObjectManagers" EntityType="GameDatabaseModel.ObjectManager" />
+    <EntitySet Name="Players" EntityType="GameDatabaseModel.Player" />
+  </EntityContainer>
+  <EntityType Name="Enemy">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="EnemyManager">
+    <Key>
+      <PropertyRef Name="EnemyID" />
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="UniqueID" />
+    </Key>
+    <Property Name="EnemyID" Type="Int32" Nullable="false" />
+    <Property Name="InventoryID" Type="Int32" Nullable="false" />
+    <Property Name="UniqueID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GameObject">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+      <PropertyRef Name="ObjectName" />
+    </Key>
+    <Property Name="ObjectID" Type="Int32" Nullable="false" />
+    <Property Name="ObjectName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="InventoryID" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="Slot" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Armor" Type="Int32" Nullable="false" />
+    <Property Name="Primary" Type="Int32" Nullable="false" />
+    <Property Name="Vitality" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Level" Type="Int32" Nullable="false" />
+    <Property Name="Attack" Type="Int32" Nullable="false" />
+    <Property Name="AttackSpeedBonus" Type="Double" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ObjectManager">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="UniqueID" />
+    </Key>
+    <Property Name="ObjectID" Type="Int32" Nullable="false" />
+    <Property Name="InventoryID" Type="Int32" Nullable="false" />
+    <Property Name="UniqueID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerID" />
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="Class" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="Experience" />
+    </Key>
+    <Property Name="PlayerID" Type="Int32" Nullable="false" />
+    <Property Name="InventoryID" Type="Int32" Nullable="false" />
+    <Property Name="Class" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Level" Type="Int32" Nullable="false" />
+    <Property Name="Experience" Type="Int32" Nullable="false" />
+    <Property Name="Progress" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+</Schema>

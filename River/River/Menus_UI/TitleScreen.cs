@@ -109,7 +109,9 @@ namespace River
                                 CurrentScreen = ScreenType.CharacterSelect;
                                 break;
                             case TitleSelectionType.LoadGame:
-                                //TODO
+                                //TODO && TEMP
+                                CurrentScreen = ScreenType.Closed;
+                                MainPTR.LoadGame(CharacterSelection);
                                 break;
                             case TitleSelectionType.Quit:
                                 CurrentScreen = ScreenType.GameExited;

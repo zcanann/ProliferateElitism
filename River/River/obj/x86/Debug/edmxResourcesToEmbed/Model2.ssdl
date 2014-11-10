@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GameDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="GameDatabaseModelStoreContainer">
+    <EntitySet Name="Enemy" EntityType="GameDatabaseModel.Store.Enemy" store:Type="Tables" store:Name="Enemy">
+      <DefiningQuery>SELECT 
+            [Enemy].[ID] AS [ID], 
+            [Enemy].[Name] AS [Name]
+            FROM [Enemy] AS [Enemy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnemyManager" EntityType="GameDatabaseModel.Store.EnemyManager" store:Type="Tables" store:Name="EnemyManager">
+      <DefiningQuery>SELECT 
+            [EnemyManager].[EnemyID] AS [EnemyID], 
+            [EnemyManager].[InventoryID] AS [InventoryID], 
+            [EnemyManager].[UniqueID] AS [UniqueID]
+            FROM [EnemyManager] AS [EnemyManager]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GameObject" EntityType="GameDatabaseModel.Store.GameObject" store:Type="Tables" store:Name="GameObject">
+      <DefiningQuery>SELECT 
+            [GameObject].[ObjectID] AS [ObjectID], 
+            [GameObject].[ObjectName] AS [ObjectName]
+            FROM [GameObject] AS [GameObject]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Inventory" EntityType="GameDatabaseModel.Store.Inventory" store:Type="Tables" store:Name="Inventory">
+      <DefiningQuery>SELECT 
+            [Inventory].[InventoryID] AS [InventoryID], 
+            [Inventory].[ItemID] AS [ItemID]
+            FROM [Inventory] AS [Inventory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Item" EntityType="GameDatabaseModel.Store.Item" store:Type="Tables" />
+    <EntitySet Name="ObjectManager" EntityType="GameDatabaseModel.Store.ObjectManager" store:Type="Tables" store:Name="ObjectManager">
+      <DefiningQuery>SELECT 
+            [ObjectManager].[ObjectID] AS [ObjectID], 
+            [ObjectManager].[InventoryID] AS [InventoryID], 
+            [ObjectManager].[UniqueID] AS [UniqueID]
+            FROM [ObjectManager] AS [ObjectManager]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Player" EntityType="GameDatabaseModel.Store.Player" store:Type="Tables" store:Name="Player">
+      <DefiningQuery>SELECT 
+            [Player].[PlayerID] AS [PlayerID], 
+            [Player].[InventoryID] AS [InventoryID], 
+            [Player].[Class] AS [Class], 
+            [Player].[Level] AS [Level], 
+            [Player].[Experience] AS [Experience], 
+            [Player].[Progress] AS [Progress]
+            FROM [Player] AS [Player]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+            warning 6002: The table/view 'Enemy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
+  <EntityType Name="Enemy">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+            warning 6002: The table/view 'EnemyManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
+  <EntityType Name="EnemyManager">
+    <Key>
+      <PropertyRef Name="EnemyID" />
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="UniqueID" />
+    </Key>
+    <Property Name="EnemyID" Type="int" Nullable="false" />
+    <Property Name="InventoryID" Type="int" Nullable="false" />
+    <Property Name="UniqueID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+            warning 6002: The table/view 'GameObject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
+  <EntityType Name="GameObject">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+      <PropertyRef Name="ObjectName" />
+    </Key>
+    <Property Name="ObjectID" Type="int" Nullable="false" />
+    <Property Name="ObjectName" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+            warning 6002: The table/view 'Inventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="InventoryID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="Slot" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Armor" Type="int" Nullable="false" />
+    <Property Name="Primary" Type="int" Nullable="false" />
+    <Property Name="Vitality" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="Attack" Type="int" Nullable="false" />
+    <Property Name="AttackSpeedBonus" Type="float" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+            warning 6002: The table/view 'ObjectManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
+  <EntityType Name="ObjectManager">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="UniqueID" />
+    </Key>
+    <Property Name="ObjectID" Type="int" Nullable="false" />
+    <Property Name="InventoryID" Type="int" Nullable="false" />
+    <Property Name="UniqueID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+            warning 6002: The table/view 'Player' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerID" />
+      <PropertyRef Name="InventoryID" />
+      <PropertyRef Name="Class" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="Experience" />
+    </Key>
+    <Property Name="PlayerID" Type="int" Nullable="false" />
+    <Property Name="InventoryID" Type="int" Nullable="false" />
+    <Property Name="Class" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="Experience" Type="int" Nullable="false" />
+    <Property Name="Progress" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+</Schema>

@@ -57,14 +57,14 @@ namespace River
         //For enemies these will serve as given/dropped
 
         public int Experience;
-        public long Gold = 5555550;
+        public long Gold = 75;
 
         protected int MaxHealth = 100;
         protected int Health = 100;
         protected int MaxMana = 100;
         protected int Mana = 100;
 
-        protected float BaseAttack = 10f;
+        protected float BaseAttack = 10f; // Damage done multiplier
         protected float Speed = 1f; //1f = 100% -- all speed changes aside from enemy presets should go through buffs
         protected float AttackSpeed = 1f;
         protected float BuffSpeedMultiplier = 1f; // 0 = all movement nullified (done via buffs)

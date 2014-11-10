@@ -6,6 +6,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace River
 {
@@ -103,7 +106,86 @@ namespace River
                         HUD.Editing = true;
                         break;
                     case IngameMenuSelectionType.Save:
-                        MenuManager.OpenSaveMenu(true);
+                        //MenuManager.OpenSaveMenu(true);
+                        //Temporary demo save
+                        Random DynamicSaveRand = new Random((int)LevelPTR.Player.Gold);
+
+                        //Get gold byte data
+                        byte[] GoldBytes = BitConverter.GetBytes((int)LevelPTR.Player.Gold);
+
+                        //Save junk data # 1
+                        byte[] JunkData1 = new byte[DynamicSaveRand.Next(55, 155)];
+                        for (int ecx = 0; ecx < JunkData1.Length; ecx++)
+                        {
+                            do
+                            {
+                                JunkData1[ecx] = (byte)DynamicSaveRand.Next(1, 254);
+                            } while (JunkData1[ecx] == GoldBytes[0] ||
+                                JunkData1[ecx] == GoldBytes[1] ||
+                                JunkData1[ecx] == GoldBytes[2] ||
+                                JunkData1[ecx] == GoldBytes[3]);
+                        }
+
+                        //Save gold amount
+                        int GoldIndex = JunkData1.Length;
+                        
+                        int GoldByteLength = 0; //# of digits to save
+                        for (int ecx = 0; ecx < GoldBytes.Length; ecx++)
+                        {
+                            if (GoldBytes[ecx] != 0)
+                                GoldByteLength++;
+                        }
+
+                        //Save junk data #2
+                        byte[] JunkData2 = new byte[DynamicSaveRand.Next(55, 155)];
+                        for (int ecx = 0; ecx < JunkData2.Length; ecx++)
+                        {
+                            do
+                            {
+                                JunkData2[ecx] = (byte)DynamicSaveRand.Next(1, 254);
+                            } while (JunkData2[ecx] == GoldBytes[0] ||
+                                JunkData2[ecx] == GoldBytes[1] ||
+                                JunkData2[ecx] == GoldBytes[2] ||
+                                JunkData2[ecx] == GoldBytes[3]);
+                        }
+
+                         //Save index of gold
+                        byte[] GoldIndexArray = BitConverter.GetBytes(GoldIndex);
+                        byte[] GoldLengthArray = BitConverter.GetBytes(GoldByteLength);
+                        //Anti-cheat save file length
+                        byte[] FileLength = BitConverter.GetBytes(GoldLengthArray.Length + 4 + JunkData1.Length + JunkData2.Length + GoldByteLength + GoldIndexArray.Length);
+                       
+
+                        try
+                        {
+                            // Open file for reading
+                            System.IO.FileStream _FileStream =
+                               new System.IO.FileStream(@"C:\Users\Zachary\AppData\Roaming\Proliferate Elitism\save1.save", System.IO.FileMode.Create,
+                                                        System.IO.FileAccess.Write);
+                            _FileStream.SetLength(1);
+                            // Writes a block of bytes to this stream using data from
+                            // a byte array.
+                            _FileStream.Write(FileLength, 0, FileLength.Length);
+                            _FileStream.Write(GoldLengthArray, 0, GoldLengthArray.Length);
+                            _FileStream.Write(GoldIndexArray, 0, GoldIndexArray.Length);
+                            _FileStream.Write(JunkData1, 0, JunkData1.Length);
+                            for (int ecx = 0; ecx < GoldBytes.Length; ecx++)
+                            {
+                                if (GoldBytes[ecx] != 0)
+                                    _FileStream.Write(GoldBytes, ecx, 1);
+                            }
+                            _FileStream.Write(JunkData2, 0, JunkData2.Length);
+
+                            // close file stream
+                            _FileStream.Close();
+                        }
+                        catch (Exception _Exception)
+                        {
+                            // Error
+                            Console.WriteLine("Exception caught in process: {0}",
+                                              _Exception.ToString());
+                        }
+
                         break;
                     case IngameMenuSelectionType.Options:
                         MenuManager.OpenOptionsMenu(true);

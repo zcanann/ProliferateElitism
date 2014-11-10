@@ -31,12 +31,13 @@ namespace River
         private CircleEmitter LootSparkle = null;
 
         private static SpriteBatchRenderer ParticleRenderer = null;
-        protected static Texture2D ParticleTexture;
+        //protected static Texture2D ParticleTexture;
 
         public Enemy(Vector2 Position, Level LevelPTR, EntityType Type, int ExpForKill)
             : base(Position, LevelPTR)
         {
             this.Type = Type;
+            
             switch (Type)
             {
                 case EntityType.Goblin:
@@ -46,6 +47,7 @@ namespace River
                 case EntityType.Skeleton:
                     SpriteAnimation = new SpriteAnimation(Skeleton);
                     SpriteAnimation.DrawOffset = new Vector2(-56, -82);
+                    Speed = 0.8f;
                     break;
                 case EntityType.Slime:
                     SpriteAnimation = new SpriteAnimation(Slime);

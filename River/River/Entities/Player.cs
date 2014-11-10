@@ -48,23 +48,19 @@ namespace River
         public const int ExpPerLevel = 5000;
 
         //Player unique stats:
-        protected int BaseDexterity = 5;
-        protected int BaseStrength = 5;
-        protected int BaseIntellect = 5;
+        protected int BasePrimary = 5;
         protected int BaseVitality = 5;
 
         public const float MaxMagicFind = 5f;
         public static float MagicFind = 5f; //TODO stop being lazy
-        private float GoldFind;
+        private float GoldFind = 0f;
 
         protected int BonusAttack;
         protected int Armor;
-        protected int BonusDexterity;
-        protected int BonusStrength;
-        protected int BonusIntellect;
+        protected int BonusPrimary;
         protected int BonusVitality;
 
-        public string[] StatText = new string[9];
+        public string[] StatText = new string[7];
 
         public Player(Vector2 Position, Level LevelPTR, EntityType Class)
             : base(Position, LevelPTR)
@@ -150,9 +146,7 @@ namespace River
             //Grab stats from item
             BonusAttack += Item.Attack;
             Armor += Item.Armor;
-            BonusDexterity += Item.Dexterity;
-            BonusStrength += Item.Strength;
-            BonusIntellect += Item.Intellect;
+            BonusPrimary += Item.Primary;
             BonusVitality += Item.Vitality;
             GoldFind += Item.GoldFind;
             MagicFind += Item.MagicFind;
@@ -171,9 +165,7 @@ namespace River
             //Take away stats from buff
             BonusAttack -= Item.Attack;
             Armor -= Item.Armor;
-            BonusDexterity -= Item.Dexterity;
-            BonusStrength -= Item.Strength;
-            BonusIntellect -= Item.Intellect;
+            BonusPrimary -= Item.Primary;
             BonusVitality -= Item.Vitality;
             GoldFind -= Item.GoldFind;
             MagicFind -= Item.MagicFind;
@@ -191,11 +183,21 @@ namespace River
             StatText[2] = "Armor: " + (Armor).ToString();
             StatText[3] = "Magic Find: +" + ((int)(100f * MagicFind)).ToString() + "%";
             StatText[4] = "Gold Find: +" + ((int)(100f * GoldFind)).ToString() + "%";
-
-            StatText[5] = "Strength: " + (BaseStrength + BonusStrength).ToString();
-            StatText[6] = "Dexterity: " + (BaseDexterity + BonusDexterity).ToString();
-            StatText[7] = "Intellect: " + (BaseIntellect + BonusIntellect).ToString();
-            StatText[8] = "Vitality: " + (BaseVitality + BonusVitality).ToString();
+            StatText[5] = "Vitality: " + (BaseVitality + BonusVitality).ToString();
+            switch (Class)
+            {
+                case EntityType.Bandit:
+                    StatText[6] = "Dexterity: " + (BasePrimary + BonusPrimary).ToString();
+                    break;
+                case EntityType.Magician:
+                    StatText[6] = "Intellect: " + (BasePrimary + BonusPrimary).ToString();
+                    break;
+                case EntityType.Warrior:
+                    StatText[6] = "Strength: " + (BasePrimary + BonusPrimary).ToString();
+                    break;
+            }
+            
+            
 
         }
 
@@ -203,20 +205,7 @@ namespace River
         {
             float Damage = base.ComputeDamage(PercentWeaponAttack);
 
-            int PrimaryStatValue = 0;
-            switch (Class)
-            {
-                case EntityType.Bandit:
-                    PrimaryStatValue = (BaseDexterity + BonusDexterity);
-                    break;
-                case EntityType.Warrior:
-                    PrimaryStatValue = (BaseStrength + BonusStrength);
-                    break;
-                case EntityType.Magician:
-                    PrimaryStatValue = (BaseIntellect + BonusIntellect);
-                    break;
-            }
-            Damage -= PrimaryStatValue * PrimaryStatToAtt;
+            Damage -= (BasePrimary + BonusPrimary) * PrimaryStatToAtt;
 
             return Damage;
         }
@@ -256,8 +245,6 @@ namespace River
                 MoveDir = Vector2.Zero;
 
                 //MOVEMENT
-
-                //Set move vector based on thumbstick
                 MoveDir.X = Main.GamePadState.ThumbSticks.Left.X;
                 MoveDir.Y = -Main.GamePadState.ThumbSticks.Left.Y;
 
@@ -439,7 +426,7 @@ namespace River
         public void AddGoldExperience(long Gold, int KillExp)
         {
             Gold = (long)(Gold * (1f + GoldFind));
-            Gold += Gold;
+            this.Gold += Gold;
             FloatingGoldNumbers.Add(new FloatingNumber("+" + Gold.ToString(), 1000f, false));
 
             if (LevelID < LevelCap)
