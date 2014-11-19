@@ -555,7 +555,6 @@ namespace River
                         Enemies[ecx].Draw(SpriteBatch);
 
                 //Draw emitters
-                //Draw emitters
                 for (int ecx = 0; ecx < DamageEmitters.Count; ecx++)
                     if ((MapY == DamageEmitters[ecx].MapPoint.Y))
                         DamageEmitters[ecx].Draw(SpriteBatch, this);

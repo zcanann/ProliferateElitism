@@ -33,10 +33,10 @@ namespace River
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SpriteBatch;
 
-        private GameDB GameDB;
         private TitleScreen TitleScreen;
         private Level Level;
         private LevelEditor LevelEditor;
+        private DatabaseEditor DatabaseEditor;
 
         public Main()
         {
@@ -49,7 +49,7 @@ namespace River
 
         protected override void Initialize()
         {
-            GameDB = new GameDB();
+            GameDB.InitializeDatabase();
             Level = new Level();
             HUD.Initialize(Level);
             TitleScreen = new TitleScreen(this);
@@ -148,6 +148,11 @@ namespace River
             Level.LoadConditionalContent(Content, Graphics);
             LevelEditor = new LevelEditor(Level);
             LevelEditor.LoadContent(Content);
+        }
+
+        public void DataBaseEditorStart()
+        {
+            DatabaseEditor = new DatabaseEditor();
         }
 
         protected override void Update(GameTime GameTime)

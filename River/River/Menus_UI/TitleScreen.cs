@@ -58,12 +58,13 @@ namespace River
                 case ScreenType.Title:
 
                     //Set timer to 0 if new time is below or if player reset thumbstick in Y
-                    if (SelectionDelay < 0f ||
-                        Math.Abs(Main.GamePadState.ThumbSticks.Left.Y) <= .2f)
+                    if (SelectionDelay < 0f || (Math.Abs(Main.GamePadState.ThumbSticks.Left.Y) <= .2f && Main.LastGamePadState.ThumbSticks.Left.Y >= 0.2f) ||
+                        (Main.KeyboardState.IsKeyUp(Keys.Up) && Main.LastKeyboardState.IsKeyDown(Keys.Up)) ||
+                        (Main.KeyboardState.IsKeyUp(Keys.Down) && Main.LastKeyboardState.IsKeyDown(Keys.Down)))
                         SelectionDelay = 0f;
 
-                    //Up
-                    if (Main.GamePadState.ThumbSticks.Left.Y > 0.5f &&
+                    // Up
+                    if ((Main.GamePadState.ThumbSticks.Left.Y > 0.5f || Main.KeyboardState.IsKeyDown(Keys.Up)) &&
                         SelectionDelay == 0f)
                     {
                         SelectionDelay = Main.StandardDelay;
@@ -81,8 +82,8 @@ namespace River
                         }
                     }
 
-                    //Right
-                    if (Main.GamePadState.ThumbSticks.Left.Y < -0.5f &&
+                    // Down
+                    if ((Main.GamePadState.ThumbSticks.Left.Y < -0.5f || Main.KeyboardState.IsKeyDown(Keys.Down)) &&
                         SelectionDelay == 0f)
                     {
                         SelectionDelay = Main.StandardDelay;
@@ -100,7 +101,8 @@ namespace River
                         }
                     }
 
-                    if (Main.GamePadState.IsButtonDown(Buttons.A) && !Main.LastGamePadState.IsButtonDown(Buttons.A))
+                    if ((Main.GamePadState.IsButtonDown(Buttons.A) && !Main.LastGamePadState.IsButtonDown(Buttons.A)) ||
+                        (Main.KeyboardState.IsKeyDown(Keys.Enter) && !Main.LastKeyboardState.IsKeyDown(Keys.Enter)))
                     {
 
                         switch (TitleSelection)
@@ -119,10 +121,16 @@ namespace River
                         }
 
                     }
-                    else if (Main.GamePadState.IsButtonDown(Buttons.B) && !Main.LastGamePadState.IsButtonDown(Buttons.B))
+                    else if ((Main.GamePadState.IsButtonDown(Buttons.B) && !Main.LastGamePadState.IsButtonDown(Buttons.B)) ||
+                        (Main.KeyboardState.IsKeyDown(Keys.Back) && !Main.LastKeyboardState.IsKeyDown(Keys.Back)))
                     {
                         CurrentScreen = ScreenType.Closed;
                         MainPTR.GameEditorStart();
+                    }
+                    else if ((Main.GamePadState.IsButtonDown(Buttons.Y) && !Main.LastGamePadState.IsButtonDown(Buttons.Y)) ||
+                        (Main.KeyboardState.IsKeyDown(Keys.Tab) && !Main.LastKeyboardState.IsKeyDown(Keys.Tab)))
+                    {
+                        MainPTR.DataBaseEditorStart();
                     }
                     break;
 
@@ -130,26 +138,28 @@ namespace River
                 case ScreenType.CharacterSelect:
 
                     //Set timer to 0 if new time is below or if player reset thumbstick in X
-                    if (SelectionDelay < 0f ||
-                        Math.Abs(Main.GamePadState.ThumbSticks.Left.X) <= .2f)
+                    if (SelectionDelay < 0f || (Math.Abs(Main.GamePadState.ThumbSticks.Left.X) <= .2f && Main.LastGamePadState.ThumbSticks.Left.X >= 0.2f) ||
+                        (Main.KeyboardState.IsKeyUp(Keys.Up) && Main.LastKeyboardState.IsKeyDown(Keys.Up)) ||
+                        (Main.KeyboardState.IsKeyUp(Keys.Down) && Main.LastKeyboardState.IsKeyDown(Keys.Down)))
                         SelectionDelay = 0f;
 
-                    if (Main.GamePadState.IsButtonDown(Buttons.A) && !Main.LastGamePadState.IsButtonDown(Buttons.A))
+                    if ((Main.GamePadState.IsButtonDown(Buttons.A) && !Main.LastGamePadState.IsButtonDown(Buttons.A)) ||
+                        (Main.KeyboardState.IsKeyDown(Keys.Enter) && !Main.LastKeyboardState.IsKeyDown(Keys.Enter)))
                     {
                         CurrentScreen = ScreenType.Closed;
                         MainPTR.NewGame(CharacterSelection);
                         return;
                     }
-                    else if (Main.GamePadState.IsButtonDown(Buttons.B) && !Main.LastGamePadState.IsButtonDown(Buttons.B))
+                    else if ((Main.GamePadState.IsButtonDown(Buttons.B) && !Main.LastGamePadState.IsButtonDown(Buttons.B)) ||
+                        (Main.KeyboardState.IsKeyDown(Keys.Back) && !Main.LastKeyboardState.IsKeyDown(Keys.Back)))
                     {
                         CurrentScreen = ScreenType.Title;
                         return;
                     }
 
 
-                    //Left
-                    if (Main.GamePadState.ThumbSticks.Left.X < -0.5f &&
-                        SelectionDelay == 0f)
+                    // Left
+                    if ((Main.GamePadState.ThumbSticks.Left.X < -0.5f || Main.KeyboardState.IsKeyDown(Keys.Left)) && SelectionDelay == 0f)
                     {
                         SelectionDelay = Main.StandardDelay;
                         switch (CharacterSelection)
@@ -166,9 +176,8 @@ namespace River
                         }
                     }
 
-                    //Right
-                    if (Main.GamePadState.ThumbSticks.Left.X > 0.5f &&
-                        SelectionDelay == 0f)
+                    // Right
+                    if ((Main.GamePadState.ThumbSticks.Left.X > 0.5f || Main.KeyboardState.IsKeyDown(Keys.Right)) && SelectionDelay == 0f)
                     {
                         SelectionDelay = Main.StandardDelay;
                         switch (CharacterSelection)
