@@ -1,0 +1,1514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Fonts\Pericles6.spritefont</Source>
+      <Name>Fonts\Pericles6</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Fonts\Pericles6.xnb</Output>
+      <Time>2013-05-18T15:46:44.0630458-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\FloatingNumbers.spritefont</Source>
+      <Name>Fonts\FloatingNumbers</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Fonts\FloatingNumbers.xnb</Output>
+      <Time>2013-05-18T14:38:06.7479332-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Absorb.png</Source>
+      <Name>Textures\UI\Skills\Absorb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Absorb.xnb</Output>
+      <Time>2013-05-23T15:20:57.0167559-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\AoeShot.png</Source>
+      <Name>Textures\UI\Skills\AoeShot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\AoeShot.xnb</Output>
+      <Time>2013-05-23T15:20:57.0267559-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Arcanebolt.png</Source>
+      <Name>Textures\UI\Skills\Arcanebolt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Arcanebolt.xnb</Output>
+      <Time>2013-05-23T15:20:58.1967575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Bandage.png</Source>
+      <Name>Textures\UI\Skills\Bandage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Bandage.xnb</Output>
+      <Time>2013-05-23T15:20:58.1967575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Blind.png</Source>
+      <Name>Textures\UI\Skills\Blind</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Blind.xnb</Output>
+      <Time>2013-05-23T15:20:58.1967575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Cauterize.png</Source>
+      <Name>Textures\UI\Skills\Cauterize</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Cauterize.xnb</Output>
+      <Time>2013-05-23T15:20:58.1967575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Cleave.png</Source>
+      <Name>Textures\UI\Skills\Cleave</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Cleave.xnb</Output>
+      <Time>2013-05-23T15:20:58.2067575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Crush.png</Source>
+      <Name>Textures\UI\Skills\Crush</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Crush.xnb</Output>
+      <Time>2013-05-23T15:20:58.2067575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Fear.png</Source>
+      <Name>Textures\UI\Skills\Fear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Fear.xnb</Output>
+      <Time>2013-05-23T15:20:58.2067575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Firebolt.png</Source>
+      <Name>Textures\UI\Skills\Firebolt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Firebolt.xnb</Output>
+      <Time>2013-05-23T15:20:58.2067575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Firewalk.png</Source>
+      <Name>Textures\UI\Skills\Firewalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Firewalk.xnb</Output>
+      <Time>2013-05-23T15:20:58.2067575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Frostbolt.png</Source>
+      <Name>Textures\UI\Skills\Frostbolt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Frostbolt.xnb</Output>
+      <Time>2013-05-23T15:20:58.2067575-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\FrostExplosion.png</Source>
+      <Name>Textures\UI\Skills\FrostExplosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\FrostExplosion.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Haste.png</Source>
+      <Name>Textures\UI\Skills\Haste</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Haste.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\IceShield.png</Source>
+      <Name>Textures\UI\Skills\IceShield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\IceShield.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Lightningbolts.png</Source>
+      <Name>Textures\UI\Skills\Lightningbolts</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Lightningbolts.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\LightningShield.png</Source>
+      <Name>Textures\UI\Skills\LightningShield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\LightningShield.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Multishot.png</Source>
+      <Name>Textures\UI\Skills\Multishot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Multishot.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\PiercingShot.png</Source>
+      <Name>Textures\UI\Skills\PiercingShot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\PiercingShot.xnb</Output>
+      <Time>2013-05-23T15:20:58.2167576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Rage.png</Source>
+      <Name>Textures\UI\Skills\Rage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Rage.xnb</Output>
+      <Time>2013-05-23T15:20:58.2767576-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Shield.png</Source>
+      <Name>Textures\UI\Skills\Shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Shield.xnb</Output>
+      <Time>2013-05-23T15:20:58.2867577-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Shoot.png</Source>
+      <Name>Textures\UI\Skills\Shoot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Shoot.xnb</Output>
+      <Time>2013-05-23T15:20:58.2867577-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Slash.png</Source>
+      <Name>Textures\UI\Skills\Slash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Slash.xnb</Output>
+      <Time>2013-05-23T15:20:58.2867577-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Storm.png</Source>
+      <Name>Textures\UI\Skills\Storm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Storm.xnb</Output>
+      <Time>2013-05-23T15:21:00.8487614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Strike.png</Source>
+      <Name>Textures\UI\Skills\Strike</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Strike.xnb</Output>
+      <Time>2013-05-23T15:21:00.8587614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\TeleportStrike.png</Source>
+      <Name>Textures\UI\Skills\TeleportStrike</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\TeleportStrike.xnb</Output>
+      <Time>2013-05-23T15:21:00.8587614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Vanish.png</Source>
+      <Name>Textures\UI\Skills\Vanish</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Vanish.xnb</Output>
+      <Time>2013-05-23T15:21:00.8687614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\Whirlwind.png</Source>
+      <Name>Textures\UI\Skills\Whirlwind</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\Whirlwind.xnb</Output>
+      <Time>2013-05-23T15:21:00.8687614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HiLight.png</Source>
+      <Name>Textures\Tiles\HiLight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HiLight.xnb</Output>
+      <Time>2013-05-26T15:37:41.4781263-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SlopeMap.png</Source>
+      <Name>Textures\Tiles\SlopeMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SlopeMap.xnb</Output>
+      <Time>2013-05-26T15:37:42.3829279-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\Tiles.png</Source>
+      <Name>Textures\Tiles\Tiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\Tiles.xnb</Output>
+      <Time>2013-05-26T20:30:58.1465339-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Characters\Player_Magician.png</Source>
+      <Name>Textures\Characters\Player_Magician</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Characters\Player_Magician.xnb</Output>
+      <Time>2013-05-17T13:45:05.337899-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Characters\Player_Thief.png</Source>
+      <Name>Textures\Characters\Player_Thief</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Characters\Player_Thief.xnb</Output>
+      <Time>2013-05-17T13:45:05.8878998-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Characters\Player_Warrior.png</Source>
+      <Name>Textures\Characters\Player_Warrior</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Characters\Player_Warrior.xnb</Output>
+      <Time>2013-05-17T13:46:50.705372-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Enemies\Elemental.png</Source>
+      <Name>Textures\Enemies\Elemental</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Enemies\Elemental.xnb</Output>
+      <Time>2013-05-17T15:19:21.9872474-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Enemies\Goblin.png</Source>
+      <Name>Textures\Enemies\Goblin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Enemies\Goblin.xnb</Output>
+      <Time>2013-05-17T15:19:21.9872474-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Enemies\Ogre.png</Source>
+      <Name>Textures\Enemies\Ogre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Enemies\Ogre.xnb</Output>
+      <Time>2013-05-17T15:19:21.9872474-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Enemies\Skeleton.png</Source>
+      <Name>Textures\Enemies\Skeleton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Enemies\Skeleton.xnb</Output>
+      <Time>2013-05-17T15:19:21.9872474-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Enemies\Slime.png</Source>
+      <Name>Textures\Enemies\Slime</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Enemies\Slime.xnb</Output>
+      <Time>2013-05-17T15:19:21.9872474-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Enemies\Zombie.png</Source>
+      <Name>Textures\Enemies\Zombie</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Enemies\Zombie.xnb</Output>
+      <Time>2013-05-17T15:19:21.9872474-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\Attacks_Thief.png</Source>
+      <Name>Textures\Attacks\Attacks_Thief</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\Attacks_Thief.xnb</Output>
+      <Time>2013-05-18T17:43:38.703635-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Buttons\AButton.png</Source>
+      <Name>Textures\UI\Buttons\AButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Buttons\AButton.xnb</Output>
+      <Time>2013-05-21T18:08:40.8368067-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Buttons\BButton.png</Source>
+      <Name>Textures\UI\Buttons\BButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Buttons\BButton.xnb</Output>
+      <Time>2013-05-21T18:08:40.8524067-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\HealthGlobe.png</Source>
+      <Name>Textures\UI\HealthGlobe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\HealthGlobe.xnb</Output>
+      <Time>2013-05-22T13:48:27.7227538-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\ManaGlobe.png</Source>
+      <Name>Textures\UI\ManaGlobe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\ManaGlobe.xnb</Output>
+      <Time>2013-05-22T13:48:28.1027543-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Buttons\XButton.png</Source>
+      <Name>Textures\UI\Buttons\XButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Buttons\XButton.xnb</Output>
+      <Time>2013-05-21T18:08:40.8524067-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Buttons\YButton.png</Source>
+      <Name>Textures\UI\Buttons\YButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Buttons\YButton.xnb</Output>
+      <Time>2013-05-21T18:08:40.8524067-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\InventoryIcon.png</Source>
+      <Name>Textures\UI\InventoryIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\InventoryIcon.xnb</Output>
+      <Time>2013-05-21T18:53:04.2364366-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\MapIcon.png</Source>
+      <Name>Textures\UI\MapIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\MapIcon.xnb</Output>
+      <Time>2013-05-21T18:53:04.2364366-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Panes\BlackPane.png</Source>
+      <Name>Textures\UI\Panes\BlackPane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Panes\BlackPane.xnb</Output>
+      <Time>2013-07-03T16:38:59.5256479-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Panes\BluePane.png</Source>
+      <Name>Textures\UI\Panes\BluePane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Panes\BluePane.xnb</Output>
+      <Time>2013-07-03T16:38:59.9156486-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Panes\GreenPane.png</Source>
+      <Name>Textures\UI\Panes\GreenPane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Panes\GreenPane.xnb</Output>
+      <Time>2013-07-03T16:39:00.2900493-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Panes\RedPane.png</Source>
+      <Name>Textures\UI\Panes\RedPane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Panes\RedPane.xnb</Output>
+      <Time>2013-07-03T16:39:00.69565-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Panes\YellowPane.png</Source>
+      <Name>Textures\UI\Panes\YellowPane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Panes\YellowPane.xnb</Output>
+      <Time>2013-07-03T16:40:32.8084366-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\MainMenu\Background.png</Source>
+      <Name>Textures\MainMenu\Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\MainMenu\Background.xnb</Output>
+      <Time>2013-05-23T22:19:30.3620003-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\Arcanebolt.png</Source>
+      <Name>Textures\Attacks\Arcanebolt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\Arcanebolt.xnb</Output>
+      <Time>2013-05-23T15:57:21.2535008-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\Fireball.png</Source>
+      <Name>Textures\Attacks\Fireball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\Fireball.xnb</Output>
+      <Time>2013-05-23T15:57:21.2535008-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\Frostbolt.png</Source>
+      <Name>Textures\Attacks\Frostbolt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\Frostbolt.xnb</Output>
+      <Time>2013-05-23T15:57:21.2535008-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\Lightningbolt.png</Source>
+      <Name>Textures\Attacks\Lightningbolt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\Lightningbolt.xnb</Output>
+      <Time>2013-05-23T15:57:21.2535008-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\MainMenu\CharacterSelect.png</Source>
+      <Name>Textures\MainMenu\CharacterSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\MainMenu\CharacterSelect.xnb</Output>
+      <Time>2013-05-23T22:09:57.0312077-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\MainMenu\HorizontalSelect.png</Source>
+      <Name>Textures\MainMenu\HorizontalSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\MainMenu\HorizontalSelect.xnb</Output>
+      <Time>2013-05-23T22:03:33.3792641-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\MainMenu\VerticalSelect.png</Source>
+      <Name>Textures\MainMenu\VerticalSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\MainMenu\VerticalSelect.xnb</Output>
+      <Time>2013-05-23T22:14:48.7288918-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\SkillLockLarge.png</Source>
+      <Name>Textures\UI\SkillLockLarge</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\SkillLockLarge.xnb</Output>
+      <Time>2013-05-24T08:24:25.435528-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\SkillLockSmall.png</Source>
+      <Name>Textures\UI\SkillLockSmall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\SkillLockSmall.xnb</Output>
+      <Time>2013-05-24T08:25:28.5403715-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\Map\Map.png</Source>
+      <Name>Textures\IngameMenu\Map\Map</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\Map\Map.xnb</Output>
+      <Time>2013-05-24T10:07:34.3372376-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\Map\MinimapSquare.png</Source>
+      <Name>Textures\IngameMenu\Map\MinimapSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\Map\MinimapSquare.xnb</Output>
+      <Time>2013-05-24T11:15:07.8422934-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\SolidBlackSquare.png</Source>
+      <Name>Textures\IngameMenu\SolidBlackSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\SolidBlackSquare.xnb</Output>
+      <Time>2013-05-25T08:43:35.6248782-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\Map\SolidBlackSquare.png</Source>
+      <Name>Textures\IngameMenu\Map\SolidBlackSquare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\Map\SolidBlackSquare.xnb</Output>
+      <Time>2013-05-24T12:13:25.8512002-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\IngameMenu.png</Source>
+      <Name>Textures\IngameMenu\IngameMenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\IngameMenu.xnb</Output>
+      <Time>2013-05-24T17:28:47.405815-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\IngameMenu2.png</Source>
+      <Name>Textures\IngameMenu\IngameMenu2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\IngameMenu2.xnb</Output>
+      <Time>2013-05-24T17:28:47.405815-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\Inventory.png</Source>
+      <Name>Textures\IngameMenu\Inventory</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\Inventory.xnb</Output>
+      <Time>2013-05-24T17:28:47.405815-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\Options.png</Source>
+      <Name>Textures\IngameMenu\Options</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\Options.xnb</Output>
+      <Time>2013-05-24T17:28:47.415815-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\IngameMenu\Save.png</Source>
+      <Name>Textures\IngameMenu\Save</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\IngameMenu\Save.xnb</Output>
+      <Time>2013-05-24T17:28:47.415815-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\SkillSelectLarge.png</Source>
+      <Name>Textures\UI\SkillSelectLarge</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\SkillSelectLarge.xnb</Output>
+      <Time>2013-05-24T18:53:23.0046914-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\SkillSelectSmall.png</Source>
+      <Name>Textures\UI\SkillSelectSmall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\SkillSelectSmall.xnb</Output>
+      <Time>2013-05-24T18:53:23.0046914-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\ReturnIcon.png</Source>
+      <Name>Textures\UI\ReturnIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\ReturnIcon.xnb</Output>
+      <Time>2013-05-25T09:24:25.2535682-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\IceShield.png</Source>
+      <Name>Textures\Attacks\IceShield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\IceShield.xnb</Output>
+      <Time>2013-05-25T11:42:02.2304319-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\LightningShield.png</Source>
+      <Name>Textures\Attacks\LightningShield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\LightningShield.xnb</Output>
+      <Time>2013-05-25T11:42:02.2304319-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\FlamingArrow.png</Source>
+      <Name>Textures\UI\Skills\FlamingArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\FlamingArrow.xnb</Output>
+      <Time>2013-05-25T18:30:04.8071507-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Skills\PoisonArrow.png</Source>
+      <Name>Textures\UI\Skills\PoisonArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Skills\PoisonArrow.xnb</Output>
+      <Time>2013-05-25T18:36:40.0498109-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\MouseMap.png</Source>
+      <Name>Textures\Tiles\MouseMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\MouseMap.xnb</Output>
+      <Time>2013-05-26T17:00:35.9261495-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile1.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile1.xnb</Output>
+      <Time>2013-05-31T15:33:39.2153989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile2.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile2.xnb</Output>
+      <Time>2013-05-31T15:33:39.2153989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile3.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile3.xnb</Output>
+      <Time>2013-05-31T15:33:39.2153989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile4.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile4.xnb</Output>
+      <Time>2013-05-31T15:33:39.2153989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile5.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile5.xnb</Output>
+      <Time>2013-05-31T15:33:39.2153989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile6.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile6.xnb</Output>
+      <Time>2013-05-31T15:33:39.2253989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile7.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile7.xnb</Output>
+      <Time>2013-05-31T15:33:39.2253989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC1.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC1.xnb</Output>
+      <Time>2013-05-27T10:49:22.5616117-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC2.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC2.xnb</Output>
+      <Time>2013-05-27T10:35:47.494862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC3.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC3.xnb</Output>
+      <Time>2013-05-27T10:35:47.494862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC4.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC4.xnb</Output>
+      <Time>2013-05-27T10:35:47.494862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC5.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC5.xnb</Output>
+      <Time>2013-05-27T10:35:47.494862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC6.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC6.xnb</Output>
+      <Time>2013-05-27T10:35:47.494862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC7.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC7.xnb</Output>
+      <Time>2013-05-27T10:35:47.494862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile0.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile0.xnb</Output>
+      <Time>2013-05-31T15:33:39.2153989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTileC0.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTileC0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTileC0.xnb</Output>
+      <Time>2013-05-27T10:49:22.2116112-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Default.png</Source>
+      <Name>Textures\Inventory\Default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Default.xnb</Output>
+      <Time>2013-05-28T16:26:00.5382456-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\IconSelector.png</Source>
+      <Name>Textures\Inventory\IconSelector</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\IconSelector.xnb</Output>
+      <Time>2013-05-28T18:03:41.3381544-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\IconSelected.png</Source>
+      <Name>Textures\Inventory\IconSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\IconSelected.xnb</Output>
+      <Time>2013-05-28T20:24:58.5304614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\AmuletGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\AmuletGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\AmuletGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1898581-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\ChestGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\ChestGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\ChestGrayed.xnb</Output>
+      <Time>2013-05-28T22:22:36.6377791-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\FeetGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\FeetGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\FeetGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1998582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\HandsGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\HandsGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\HandsGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1998582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\HeadGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\HeadGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\HeadGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1998582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\LegsGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\LegsGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\LegsGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1998582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\OffhandGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\OffhandGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\OffhandGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1998582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\RingGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\RingGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\RingGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.1998582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Grayed\WeaponGrayed.png</Source>
+      <Name>Textures\Inventory\Grayed\WeaponGrayed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Grayed\WeaponGrayed.xnb</Output>
+      <Time>2013-05-28T21:45:27.2098582-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Amulet0.png</Source>
+      <Name>Textures\Inventory\Warrior\Amulet0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Amulet0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6626282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Chest0.png</Source>
+      <Name>Textures\Inventory\Warrior\Chest0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Chest0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6726282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Feet0.png</Source>
+      <Name>Textures\Inventory\Warrior\Feet0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Feet0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6726282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Hands0.png</Source>
+      <Name>Textures\Inventory\Warrior\Hands0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Hands0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6726282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Head0.png</Source>
+      <Name>Textures\Inventory\Warrior\Head0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Head0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6726282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Legs0.png</Source>
+      <Name>Textures\Inventory\Warrior\Legs0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Legs0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6726282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Offhand0.png</Source>
+      <Name>Textures\Inventory\Warrior\Offhand0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Offhand0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6726282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Ring0.png</Source>
+      <Name>Textures\Inventory\Warrior\Ring0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Ring0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6826282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\Warrior\Weapon0.png</Source>
+      <Name>Textures\Inventory\Warrior\Weapon0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\Warrior\Weapon0.xnb</Output>
+      <Time>2013-05-30T15:50:14.6826282-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\LootIcon.png</Source>
+      <Name>Textures\UI\LootIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\LootIcon.xnb</Output>
+      <Time>2013-05-29T10:49:04.2492145-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\FrameBlue.png</Source>
+      <Name>Textures\Inventory\FrameBlue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\FrameBlue.xnb</Output>
+      <Time>2013-05-30T15:50:21.7856384-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\FrameEmpty.png</Source>
+      <Name>Textures\Inventory\FrameEmpty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\FrameEmpty.xnb</Output>
+      <Time>2013-05-30T15:50:21.7856384-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\FrameOrange.png</Source>
+      <Name>Textures\Inventory\FrameOrange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\FrameOrange.xnb</Output>
+      <Time>2013-05-30T15:50:21.7856384-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\FrameYellow.png</Source>
+      <Name>Textures\Inventory\FrameYellow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\FrameYellow.xnb</Output>
+      <Time>2013-05-30T15:50:21.7856384-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile0.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile0.xnb</Output>
+      <Time>2013-06-30T14:45:37.889054-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile10.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile10.xnb</Output>
+      <Time>2013-05-31T15:33:39.2253989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile8.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile8.xnb</Output>
+      <Time>2013-05-31T15:33:39.2253989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile9.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile9.xnb</Output>
+      <Time>2013-05-31T15:33:39.2253989-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile1.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile1.xnb</Output>
+      <Time>2013-05-31T15:10:21.1653039-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\FloorTiles\FloorTile11.png</Source>
+      <Name>Textures\Tiles\FloorTiles\FloorTile11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\FloorTiles\FloorTile11.xnb</Output>
+      <Time>2013-05-31T15:37:06.3463749-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile2.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile2.xnb</Output>
+      <Time>2013-06-01T12:46:37.0849789-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile3.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile3.xnb</Output>
+      <Time>2013-05-31T16:18:46.0437199-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile4.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile4.xnb</Output>
+      <Time>2013-06-30T14:38:03.8009466-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile5.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile5.xnb</Output>
+      <Time>2013-05-31T16:19:57.8414437-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile0.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile0.xnb</Output>
+      <Time>2013-06-01T12:02:41.3707776-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile1.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile1.xnb</Output>
+      <Time>2013-06-04T17:58:41.7301898-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile2.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile2.xnb</Output>
+      <Time>2013-06-04T17:58:42.1801905-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\StatPanel.png</Source>
+      <Name>Textures\Inventory\StatPanel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\StatPanel.xnb</Output>
+      <Time>2013-06-01T17:21:13.2793829-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\ItemStatPanel.png</Source>
+      <Name>Textures\Inventory\ItemStatPanel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\ItemStatPanel.xnb</Output>
+      <Time>2013-06-01T17:21:12.3593816-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\EnemyHPBar.png</Source>
+      <Name>Textures\UI\EnemyHPBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\EnemyHPBar.xnb</Output>
+      <Time>2013-06-02T12:32:55.6512774-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\EnemyHPFrame.png</Source>
+      <Name>Textures\UI\EnemyHPFrame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\EnemyHPFrame.xnb</Output>
+      <Time>2013-06-02T12:32:55.6512774-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Inventory\GoldPanel.png</Source>
+      <Name>Textures\Inventory\GoldPanel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Inventory\GoldPanel.xnb</Output>
+      <Time>2013-06-03T14:49:43.4912493-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Buttons\BackButton.png</Source>
+      <Name>Textures\UI\Buttons\BackButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Buttons\BackButton.xnb</Output>
+      <Time>2013-06-04T17:48:41.2808513-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\Buttons\StartButton.png</Source>
+      <Name>Textures\UI\Buttons\StartButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\Buttons\StartButton.xnb</Output>
+      <Time>2013-06-04T17:48:41.2808513-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile1_0.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile1_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile1_0.xnb</Output>
+      <Time>2013-06-04T18:01:57.4249445-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile1_1.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile1_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile1_1.xnb</Output>
+      <Time>2013-06-04T18:01:57.4349445-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile2_0.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile2_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile2_0.xnb</Output>
+      <Time>2013-06-04T18:01:57.4349445-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile2_1.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile2_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile2_1.xnb</Output>
+      <Time>2013-06-04T18:01:57.4349445-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile3.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile3.xnb</Output>
+      <Time>2013-06-24T20:03:55.5223842-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile4.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile4.xnb</Output>
+      <Time>2013-06-24T20:03:55.5223842-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile5.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile5.xnb</Output>
+      <Time>2013-06-24T20:03:55.5223842-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile5_0.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile5_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile5_0.xnb</Output>
+      <Time>2013-06-24T20:03:55.5223842-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile5_1.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile5_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile5_1.xnb</Output>
+      <Time>2013-06-24T20:03:55.5223842-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile10.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile10.xnb</Output>
+      <Time>2013-06-30T14:15:19.5594865-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile6.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile6.xnb</Output>
+      <Time>2013-06-30T14:16:56.8183796-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile7.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile7.xnb</Output>
+      <Time>2013-06-30T14:16:56.8339796-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile8.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile8.xnb</Output>
+      <Time>2013-06-30T14:16:56.8339796-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\SurfaceTiles\SurfaceTile9.png</Source>
+      <Name>Textures\Tiles\SurfaceTiles\SurfaceTile9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\SurfaceTiles\SurfaceTile9.xnb</Output>
+      <Time>2013-06-30T14:16:56.8339796-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Tiles\HeightTiles\HeightTile6.png</Source>
+      <Name>Textures\Tiles\HeightTiles\HeightTile6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Tiles\HeightTiles\HeightTile6.xnb</Output>
+      <Time>2013-06-30T14:17:05.8351954-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\MainHud.png</Source>
+      <Name>Textures\UI\MainHud</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\MainHud.xnb</Output>
+      <Time>2013-07-03T16:36:32.0959967-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\UI\AttributeParticle.png</Source>
+      <Name>Textures\UI\AttributeParticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\UI\AttributeParticle.xnb</Output>
+      <Time>2013-07-02T15:18:07.3551887-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Attacks\AttributeParticle.png</Source>
+      <Name>Textures\Attacks\AttributeParticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\Textures\Attacks\AttributeParticle.xnb</Output>
+      <Time>2013-07-13T17:03:48.6183851-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{4FFD3771-F962-431F-844B-0A50E0AC7FCA}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\RiverContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Zachary\Documents\Visual Studio 2010\Projects\River\River\River\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T17:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T17:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-11-26T21:08:20.3821275-08:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
