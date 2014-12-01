@@ -55,6 +55,9 @@ namespace River
         //Swap function where one inventory is always
         new public static void SwapItems(StandardInventory Inventory, int InventoryIndex, StandardInventory Equipment, int EquipmentIndex)
         {
+            // Update item ownership in the database
+            UpdateOwnership(Inventory, InventoryIndex, Equipment, EquipmentIndex);
+
             //Grab first item and store in Temp
             Item Temp = Inventory.Items[InventoryIndex];
 

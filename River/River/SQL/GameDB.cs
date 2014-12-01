@@ -71,16 +71,16 @@ namespace River
 
             ExecuteCommand("DELETE FROM ObjectManager", QueryType.NonExecute);
 
-            // Create storage chest
-            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Storage'", QueryType.Scalar))
-            {
-                AddObjectToManager(GetObjectID("Storage"), "'Storage'");
-            }
-
             // Create equipment
             if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Equipment'", QueryType.Scalar))
             {
                 AddObjectToManager(GetObjectID("Equipment"), "'Equipment'");
+            }
+
+            // Create storage chest
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Storage'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("Storage"), "'Storage'");
             }
 
             // Create shop
@@ -162,6 +162,19 @@ namespace River
             while (ExecuteCommand("SELECT COUNT(*) FROM Inventory WHERE [InventoryID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
 
             LastInventory = NewKey;
+
+            return NewKey;
+        }
+
+        private static Int32 LastInventoryManager = 0;
+        private static Int32 GetNewInventoryManagerID()
+        {
+            Int32 NewKey = LastInventoryManager;
+
+            // Get new inventory ID
+            while (ExecuteCommand("SELECT COUNT(*) FROM InventoryManager WHERE [UniqueID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+
+            LastInventoryManager = NewKey;
 
             return NewKey;
         }
@@ -301,9 +314,12 @@ namespace River
                 "Values(" + ID.ToString() + ", " + NewInventory.ToString() + ", " + NewKey.ToString() + ", " + Identifier.ToString() + ")", QueryType.NonExecute);
         }
 
-        public static bool AddItemToInventory(Int32 ItemID, Int32 InventoryID)
+        public static bool AddItemToInventoryManager(Int32 ItemID, Int32 InventoryID)
         {
-            return ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(" + ItemID.ToString() + ", " + InventoryID.ToString() + ")", QueryType.NonExecute);
+            Int32 NewKey = GetNewInventoryManagerID();
+
+            return ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID], [UniqueID]) " +
+                "Values(" + InventoryID.ToString() + ", " + ItemID.ToString() + ", " + NewKey.ToString() + ")", QueryType.NonExecute);
         }
 
         #endregion
@@ -360,6 +376,24 @@ namespace River
         }
 
         #endregion
+
+        public static void UpdateOwnerShip(Int32 OldInventoryID, Int32 NewInventoryID, Int32 ItemID)
+        {
+            List<Object> UniqueID;
+
+            // Grab the first item that matches the description of the item being traded
+            ExecuteCommand("SELECT UniqueID FROM InventoryManager WHERE InventoryID = " + OldInventoryID.ToString() + " "+
+                "AND ItemID = " + ItemID.ToString(), QueryType.Reader, out UniqueID);
+
+            if (UniqueID.Count <= 0)
+            {
+                throw new Exception("Something went wrong");
+            }
+
+            // Update ownership for this entry
+            ExecuteCommand("UPDATE InventoryManager SET InventoryID = " + NewInventoryID.ToString() + " " +
+                "WHERE UniqueID = " + UniqueID[0].ToString(), QueryType.NonExecute);
+        }
 
         public static Int32 GetPlayerInventoryID(String Class)
         {
@@ -454,19 +488,19 @@ namespace River
         public static Item AddRandomItem(Int32 InventoryID, Int32 BaseLevel)
         {
             List<Object> PossibleItemIDs;
-            Item ReturnedItem = null;
 
             // Generate a random item with level from BaseLevel - 3 to BaseLevel
             ExecuteCommand("SELECT ItemID FROM Item WHERE Level <= " + BaseLevel.ToString() + " " +
                 "AND Level >= " + (BaseLevel - 3).ToString(), QueryType.Reader, out PossibleItemIDs);
 
             if (PossibleItemIDs.Count == 0)
-                return ReturnedItem;
+            {
+                throw new Exception("Something went wrong. Not enough items in DB");
+            }
 
             Int32 SelectedItemID = (Int32)PossibleItemIDs[Random.Next(0, PossibleItemIDs.Count)];
 
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(" +
-                InventoryID.ToString() + ", " + SelectedItemID.ToString() + ")", QueryType.NonExecute);
+            AddItemToInventoryManager(SelectedItemID, InventoryID);
 
             return ReadItemFromDataBase(SelectedItemID);
         }
@@ -487,35 +521,36 @@ namespace River
                 Int32 Level = (Int32)Result[5];
                 Int32 Attack = (Int32)Result[6];
                 float AttackSpeedBonus = (float)((double)Result[7]);
-                
+                //Int32 ItemID = (Int32)Result[8];
+
                 switch ((String)Result[0])
                 {
                     case "Amulet":
-                        ObtainedItem = new Items.Amulet(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Amulet(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Chest":
-                        ObtainedItem = new Items.Chest(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Chest(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Feet":
-                        ObtainedItem = new Items.Feet(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Feet(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Hands":
-                        ObtainedItem = new Items.Hands(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Hands(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Head":
-                        ObtainedItem = new Items.Head(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Head(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Legs":
-                        ObtainedItem = new Items.Legs(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Legs(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Offhand":
-                        ObtainedItem = new Items.Offhand(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Offhand(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Ring":
-                        ObtainedItem = new Items.Ring(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Ring(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
                     case "Weapon":
-                        ObtainedItem = new Items.Weapon(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        ObtainedItem = new Items.Weapon(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID);
                         break;
 
                     default:
@@ -571,7 +606,14 @@ namespace River
             return Result;
         }
 
+        public static List<Object> GetEnemyIDs()
+        {
+            List<Object> Result;
 
+            ExecuteCommand("SELECT [UniqueID] FROM EnemyManager", QueryType.Reader, out Result);
+
+            return Result;
+        }
 
         #endregion
 

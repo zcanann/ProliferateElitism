@@ -35,6 +35,9 @@ namespace River
 
         new public static void SwapItems(StandardInventory Source, int SourceIndex, StandardInventory Destination, int DestinationIndex)
         {
+            // Update item ownership in the database
+            UpdateOwnership(Source, SourceIndex, Destination, DestinationIndex);
+
             long GoldChange = 0;
 
             if (Destination.Items[DestinationIndex] != Item.None)

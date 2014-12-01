@@ -68,6 +68,8 @@ namespace River
 
         private int Enchantments = 0;
 
+        public int ItemID = -1;
+
         private int _Armor;
         private int _Primary;
         private int _Vitality;
@@ -100,7 +102,7 @@ namespace River
         public float MagicFind;
         public float GoldFind;
 
-        public Item(SlotType Slot, int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
+        public Item(SlotType Slot, int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus, int ItemID)
         {
             this.Slot = Slot;
             this.Armor = Armor;
@@ -110,6 +112,7 @@ namespace River
             this.ItemLevel = Level;
             this.Attack = Attack;
             this.AttackSpeedBonus = AttackSpeedBonus;
+            this.ItemID = ItemID;
 
             //this.TryGiveBuff();
             this.SetIcon();

@@ -8,8 +8,8 @@ namespace River.Items
 {
     class Hands : Item
     {
-        public Hands(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
-            : base(SlotType.Hands, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
+        public Hands(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus, int ItemID)
+            : base(SlotType.Hands, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID)
         {
 
         }

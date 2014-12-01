@@ -195,7 +195,7 @@ namespace River
             List<Object> ObjectIDs = GameDB.GetObjectIDs();
 
             // Should not happen, but will prevent errors if something weird occurs
-            if (ObjectTypes.Count != ObjectCount)
+            if (ObjectTypes.Count != ObjectCount && ObjectIDs.Count != ObjectCount)
             {
                 throw new Exception("Something went wrong");
                 //ObjectCount = ObjectIDs.Count;
@@ -230,10 +230,11 @@ namespace River
             Int32 EnemyCount = LevelMap.EnemySpawn.Length;
 
             GameDB.CreateLevelEnemies(EnemyCount, new Int32[] { 1, 2, 3, 4, 5, 6 });
-            List<Object> EnemyIDs = GameDB.GetEnemies();
+            List<Object> EnemyTypes = GameDB.GetEnemies();
+            List<Object> EnemyIDs = GameDB.GetEnemyIDs();
 
             // Should not happen, but will prevent errors if something weird occurs
-            if (EnemyIDs.Count != EnemyCount)
+            if (EnemyTypes.Count != EnemyCount && EnemyIDs.Count != EnemyCount)
             {
                 throw new Exception("Something went wrong");
                 //EnemyCount = EnemyIDs.Count;
@@ -255,7 +256,7 @@ namespace River
 
             for (int ecx = 0; ecx < Enemies.Length; ecx++)
             {
-                switch ((Int32)EnemyIDs[ecx])
+                switch ((Int32)EnemyTypes[ecx])
                 {
                     case 1:
                         NextEntityType = EntityType.Elemental;

@@ -16,7 +16,7 @@ namespace River
 
         public bool GenerateOnLoot = false;
 
-        
+
 
         public LootInventory(Int32 MyInventoryID)
             : base(MyInventoryID)
@@ -48,7 +48,7 @@ namespace River
                     Guarenteed = false;
 
                 this.Items[NextIndex] = GetRandomItem(BaseLevel, Guarenteed);
-                if (this.Items[ecx] != Item.None)
+                if (this.Items[NextIndex] != Item.None)
                     NextIndex++;
             }
 
@@ -56,11 +56,20 @@ namespace River
 
         protected virtual Item GetRandomItem(int BaseLevel, bool IsGuarenteed)
         {
+            Item ReturnItem = Item.None;
 
+            // 33% chance per slot of an item
             if (!IsGuarenteed && Random.NextDouble() > 0.33)
-                return Item.None;
-            
-            return GameDB.AddRandomItem(InventoryID, BaseLevel);
+            {
+                ReturnItem = GameDB.AddRandomItem(InventoryID, BaseLevel);
+
+                if (ReturnItem == Item.None)
+                {
+                    throw new Exception("Something went wrong");
+                }
+            }
+
+            return ReturnItem;
         }
 
         //Just draw in a vertical line down

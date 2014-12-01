@@ -7,8 +7,8 @@ namespace River.Items
 {
     class Amulet : Item
     {
-        public Amulet(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
-            : base(SlotType.Amulet, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
+        public Amulet(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus, int ItemID)
+            : base(SlotType.Amulet, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID)
         {
 
         }

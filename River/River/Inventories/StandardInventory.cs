@@ -55,12 +55,31 @@ namespace River
 
         public static void SwapItems(StandardInventory Source, int SourceIndex, StandardInventory Destination, int DestinationIndex)
         {
+            // Update item ownership in the database
+            UpdateOwnership(Source, SourceIndex, Destination, DestinationIndex);
+
             //Grab first item and store in Temp
             Item Temp = Source.Items[SourceIndex];
 
             //Swap
             Source.Items[SourceIndex] = Destination.Items[DestinationIndex];
             Destination.Items[DestinationIndex] = Temp;
+        }
+
+        protected static void UpdateOwnership(StandardInventory Source, int SourceIndex, StandardInventory Destination, int DestinationIndex)
+        {
+            // Swapping nothing with nothing, who cares.
+            if (Source.Items[SourceIndex] == Item.None && Destination.Items[DestinationIndex] == Item.None)
+                return;
+
+            if (Source.Items[SourceIndex] != Item.None)
+            {
+                GameDB.UpdateOwnerShip(Source.InventoryID, Destination.InventoryID, Source.Items[SourceIndex].ItemID);
+            }
+            if (Destination.Items[DestinationIndex] != Item.None)
+            {
+                GameDB.UpdateOwnerShip(Destination.InventoryID, Source.InventoryID, Destination.Items[DestinationIndex].ItemID);
+            }
         }
 
         public virtual void Draw(SpriteBatch SpriteBatch)

@@ -252,7 +252,7 @@ namespace River
                     IsAlive = false;
                     Health = 0;
                     SpriteAnimation.CurrentAnimation = GetDeathAnimation();
-                    Inventory.GenerateDrops(MyEnemyID, LevelValue);
+                    Inventory.GenerateDrops(LevelValue);
                     LoadLootSparkle();
                     LevelPTR.GivePlayerGoldExp(Gold, Experience);
 

@@ -8,8 +8,8 @@ namespace River.Items
 {
     class Head : Item
     {
-        public Head(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
-            : base(SlotType.Head, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
+        public Head(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus, int ItemID)
+            : base(SlotType.Head, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID)
         {
 
         }

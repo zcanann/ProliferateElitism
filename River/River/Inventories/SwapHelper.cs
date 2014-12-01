@@ -144,6 +144,7 @@ namespace River
             if (SwapCallers[0] == SwapCallers[1] &&
                 StoredIndexes[0] == StoredIndexes[1])
                 CrossMenu = true;
+
             //b) Test for standard swap
             else if (SwapCallers[0] != SwapCallers[1])
                 CrossMenu = true;
@@ -201,7 +202,6 @@ namespace River
 
                         //Apply swap
                         ShopInventory.SwapItems(ConnectedInventory, ConnectedSlot, NormalInventory, NormalSlot);
-
                     }
                     else
                     {

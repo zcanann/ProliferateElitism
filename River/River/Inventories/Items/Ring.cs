@@ -7,8 +7,8 @@ namespace River.Items
 {
     class Ring : Item
     {
-        public Ring(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
-            : base(SlotType.Ring, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
+        public Ring(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus, int ItemID)
+            : base(SlotType.Ring, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID)
         {
           
         }

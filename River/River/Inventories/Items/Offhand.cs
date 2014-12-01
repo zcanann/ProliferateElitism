@@ -7,8 +7,8 @@ namespace River.Items
 {
     class Offhand : Item
     {
-        public Offhand(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
-            : base(SlotType.Offhand, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
+        public Offhand(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus, int ItemID)
+            : base(SlotType.Offhand, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus, ItemID)
         {
 
         }
