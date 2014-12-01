@@ -72,11 +72,15 @@ namespace River
             MenuManager.LoadContent(Content);
         }
 
-        protected override void UnloadContent() { }
+        protected override void UnloadContent()
+        {
+            GameDB.CloseDatabase();
+        }
 
         //Start the game
         public void NewGame(EntityType Class)
         {
+            GameDB.CreatePlayer(Class.ToString());
             Item.LoadConditionalContent(Content, Class);
             Level.LoadLevel(false, Class);
             HUD.LoadConditionalContent(Content, Class);
@@ -90,55 +94,7 @@ namespace River
             HUD.LoadConditionalContent(Content, Class);
             Level.LoadConditionalContent(Content, Graphics);
 
-            try
-            {
-                // Open file for reading
-                System.IO.FileStream _FileStream =
-                   new System.IO.FileStream(@"C:\Users\Zachary\AppData\Roaming\Proliferate Elitism\save1.save", System.IO.FileMode.Open,
-                                            System.IO.FileAccess.Read);
-                // Writes a block of bytes to this stream using data from
-                // a byte array.
-
-                int FileLength = -1;
-                int GoldLength = -1;
-                int GoldIndex = -1;
-                int GoldValue = -1;
-                byte[] FileLengthA = new byte[4];
-                byte[] GoldLengthA = new byte[4];
-                byte[] GoldIndexA = new byte[4];
-                byte[] GoldValueA = new byte[4];
-
-                _FileStream.Read(FileLengthA, 0, FileLengthA.Length);
-                _FileStream.Read(GoldLengthA, 0, GoldLengthA.Length);
-                _FileStream.Read(GoldIndexA, 0, GoldIndexA.Length);
-
-                FileLength = BitConverter.ToInt32(FileLengthA, 0);
-                GoldLength = BitConverter.ToInt32(GoldLengthA, 0);
-                GoldIndex = BitConverter.ToInt32(GoldIndexA, 0);
-
-                if (_FileStream.Length != FileLength)
-                {
-                    throw new Exception("Error! Save file corrupted!");
-                }
-
-                _FileStream.Seek(GoldIndex + 12, System.IO.SeekOrigin.Begin);
-                for (int ecx = 0; ecx < GoldLength; ecx++)
-                {
-                    GoldValueA[ecx] = (byte)_FileStream.ReadByte();
-                }
-
-                GoldValue = BitConverter.ToInt32(GoldValueA, 0);
-
-                Level.Player.Gold = GoldValue;
-
-                // close file stream
-                _FileStream.Close();
-            }
-            catch (Exception _Exception)
-            {
-                // Error
-                MessageBox.Show(_Exception.ToString(), "Error!", MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
+            //Level.Player.Gold = GoldValue;
         }
 
         //Start the editor

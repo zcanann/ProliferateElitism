@@ -8,13 +8,13 @@ namespace River.Items
 {
     class Chest : Item
     {
-        public Chest(int EnemyLevel, float MagicFind)
-            : base(EnemyLevel, MagicFind, SlotType.Chest)
+        public Chest(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
+            : base(SlotType.Chest, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
         {
 
         }
 
-        public override void RandomizeStats(int EnemyLevel)
+        /*public override void RandomizeStats(int EnemyLevel)
         {
             base.RandomizeStats(EnemyLevel);
             this.Attack = 0;
@@ -43,7 +43,7 @@ namespace River.Items
 
                 this.Buff = new Buff("Recover " + Healing.ToString() + " / sec", Buff.StateType.None, Buff.Indefinite, 1000f, Healing, 1f);
             }
-        }
+        }*/
 
         protected override void SetIcon()
         {

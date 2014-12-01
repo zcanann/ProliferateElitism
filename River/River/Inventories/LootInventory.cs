@@ -16,8 +16,10 @@ namespace River
 
         public bool GenerateOnLoot = false;
 
-        public LootInventory()
-            : base()
+        
+
+        public LootInventory(Int32 MyInventoryID)
+            : base(MyInventoryID)
         {
             //Base will just call our initialize
         }
@@ -33,66 +35,32 @@ namespace River
             TextDrawPosition.Y = BasePosition.Y + (InventorySlots / InventoryRowSize) * Item.IconSize + Item.IconSize;
         }
 
-        public virtual void GenerateDrops(EntityType EntityType, int EnemyLevel, float MagicFind, bool IsBoss)
+        public virtual void GenerateDrops(int BaseLevel, int AmountGuarenteed = 0)
         {
-            if (MagicFind > Player.MaxMagicFind)
-                MagicFind = Player.MaxMagicFind;
-
-            //this.Items[0] = GetJunkItem();
-
+            bool Guarenteed = false;
             int NextIndex = 0;
+
             for (int ecx = 0; ecx < this.Items.Length; ecx++)
             {
-                this.Items[NextIndex] = GetRandomItem(EntityType, EnemyLevel, MagicFind, IsBoss);
+                if (ecx < AmountGuarenteed)
+                    Guarenteed = true;
+                else
+                    Guarenteed = false;
+
+                this.Items[NextIndex] = GetRandomItem(BaseLevel, Guarenteed);
                 if (this.Items[ecx] != Item.None)
                     NextIndex++;
             }
 
         }
 
-        protected Item GetJunkItem(EntityType EntityType, int EnemyLevel, float MagicFind)
+        protected virtual Item GetRandomItem(int BaseLevel, bool IsGuarenteed)
         {
-            int Chance = Random.Next(0, 101); //0 to 100
 
-            return new Items.Gem(EnemyLevel, MagicFind, EntityType);
-
-        }
-
-        protected virtual Item GetRandomItem(EntityType EntityType, int EnemyLevel, float MagicFind, bool IsBoss)
-        {
-            int Chance;
-
-            if (IsBoss)
-                Chance = 100;
-            else
-                Chance = Random.Next(0, 101); //0 to 100
-
-            if (Chance > 80) //20% chance per item (unless boss)
-            {
-                switch (Random.Next(0, Enum.GetValues(typeof(Item.SlotType)).Length - 1))
-                {
-                    case (int)Item.SlotType.Amulet:
-                        return new Items.Amulet(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Chest:
-                        return new Items.Chest(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Feet:
-                        return new Items.Feet(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Hands:
-                        return new Items.Hands(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Head:
-                        return new Items.Head(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Legs:
-                        return new Items.Legs(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Offhand:
-                        return new Items.Offhand(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Ring:
-                        return new Items.Ring(EnemyLevel, MagicFind);
-                    case (int)Item.SlotType.Weapon:
-                        return new Items.Weapon(EnemyLevel, MagicFind);
-                }
-            }
-
-            return null;
+            if (!IsGuarenteed && Random.NextDouble() > 0.33)
+                return Item.None;
+            
+            return GameDB.AddRandomItem(InventoryID, BaseLevel);
         }
 
         //Just draw in a vertical line down

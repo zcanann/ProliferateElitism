@@ -155,7 +155,6 @@
     <Compile Include="Inventories\Items\Feet.cs" />
     <Compile Include="Inventories\Items\Hands.cs" />
     <Compile Include="Inventories\Items\Head.cs" />
-    <Compile Include="Inventories\Items\Gem.cs" />
     <Compile Include="Inventories\Items\Legs.cs" />
     <Compile Include="Inventories\Items\Offhand.cs" />
     <Compile Include="Inventories\Items\Ring.cs" />
@@ -222,7 +221,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="Menus_UI\HUD.cs" />
     <Compile Include="Misc\UnitCircle.cs" />
-    <Compile Include="Inventories\WeaponRackInventory.cs" />
     <Compile Include="SQL\GameDB.cs" />
   </ItemGroup>
   <ItemGroup>

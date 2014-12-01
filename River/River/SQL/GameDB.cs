@@ -9,6 +9,9 @@ namespace River
 {
     static class GameDB
     {
+
+        #region Variables/Initialization
+
         private enum QueryType
         {
             NonExecute,
@@ -29,16 +32,14 @@ namespace River
             {
                 MainConnection = new SqlCeConnection("Data Source = ..\\..\\..\\GameDatabase.sdf;Password=''");
                 LocalConnection = new SqlCeConnection("Data Source = GameDatabase.sdf;Password=''");
-                MainConnection.Open();
-                LocalConnection.Open();
 
                 CommandMain = MainConnection.CreateCommand();
                 CommandLocal = LocalConnection.CreateCommand();
 
-                InsertTestData();
+                MainConnection.Open();
+                LocalConnection.Open();
 
-                //MainConnection.Close();1
-                //LocalConnection.Close();
+                InitializeStaticData();
             }
             catch (Exception Ex)
             {
@@ -46,124 +47,231 @@ namespace River
             }
         }
 
-        private static void InsertTestData()
+        public static void CloseDatabase()
         {
-            // Create players
-            CreatePlayers();
+            try
+            {
+                if (MainConnection != null)
+                    MainConnection.Close();
+                if (LocalConnection != null)
+                    LocalConnection.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
 
-            // Create test items
-            ExecuteCommand("DELETE FROM Item WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Item ([Slot], [Armor], [Primary], [Vitality], [Name], [Level], [Attack], [AttackSpeedBonus], [ItemID]) " +
-                "Values('Weapon', 5, 5, 5, 'Sword', 5, 5, 1, 1)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Item ([Slot], [Armor], [Primary], [Vitality], [Name], [Level], [Attack], [AttackSpeedBonus], [ItemID]) " +
-                "Values('Weapon', 7, 7, 7, 'Dagger', 7, 7, 1, 2)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Item ([Slot], [Armor], [Primary], [Vitality], [Name], [Level], [Attack], [AttackSpeedBonus], [ItemID]) " +
-                "Values('Ring', 3, 3, 3, 'Copper Ring', 3, 3, 1, 3)", QueryType.NonExecute);
-
-            // Create test enemies
-            ExecuteCommand("DELETE FROM Enemy WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Enemy ([EnemyID], [EnemyName]) " + "Values(1, 'Skeleton')", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Enemy ([EnemyID], [EnemyName]) " + "Values(2, 'Goblin')", QueryType.NonExecute);
-
-            // Create test objects
-            ExecuteCommand("DELETE FROM GameObject WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO GameObject ([ObjectID], [ObjectName]) " + "Values(1, 'Chest')", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO GameObject ([ObjectID], [ObjectName]) " + "Values(2, 'Lockbox')", QueryType.NonExecute);
-
-            // Create test enemy manager
-            ExecuteCommand("DELETE FROM EnemyManager WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO EnemyManager ([EnemyID], [InventoryID], [UniqueID]) " + "Values(1, 4, 1)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO EnemyManager ([EnemyID], [InventoryID], [UniqueID]) " + "Values(1, 5, 2)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO EnemyManager ([EnemyID], [InventoryID], [UniqueID]) " + "Values(2, 6, 3)", QueryType.NonExecute);
-
-            // Create test object manager
-            ExecuteCommand("DELETE FROM ObjectManager WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO ObjectManager ([ObjectID], [InventoryID], [UniqueID]) " + "Values(1, 7, 1)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO ObjectManager ([ObjectID], [InventoryID], [UniqueID]) " + "Values(2, 8, 2)", QueryType.NonExecute);
-
-            // Initialize test inventories
-            ExecuteCommand("DELETE FROM Inventory WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(1)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(2)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(3)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(4)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(5)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(6)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(7)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(8)", QueryType.NonExecute);
-
-            // Create test items for the inventories
-            ExecuteCommand("DELETE FROM InventoryManager WHERE 1 = 1", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(1, 1)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(2, 2)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(2, 2)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(2, 3)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(5, 1)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(6, 3)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(7, 2)", QueryType.NonExecute);
-            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(8, 2)", QueryType.NonExecute);
-
-
-            GetItemsFromInventory("2");
         }
 
-        public static void CreatePlayers()
+        private static void InitializeStaticData()
         {
-            // Only 3 default players. One for each class.
-            ExecuteCommand("DELETE FROM Player WHERE 1=1", QueryType.NonExecute);
+            RemoveAllEnemies();
+            RemoveAllObjects();
+            RemoveUnusedInventories();
 
-            // Create player 1
-            Int32 NewInventory = CreateNewInventory();
-            ExecuteCommand("INSERT INTO Player ([PlayerID], [InventoryID], [Class], [Level], [Experience], [Progress]) " +
-                "Values(1, " + NewInventory.ToString() + ", 'Magician', 0, 0, 'New')", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM ObjectManager", QueryType.NonExecute);
 
-            // Create player 2
-            NewInventory = CreateNewInventory();
-            ExecuteCommand("INSERT INTO Player ([PlayerID], [InventoryID], [Class], [Level], [Experience], [Progress]) " +
-                "Values(2, " + NewInventory.ToString() + ", 'Warrior', 0, 0, 'New')", QueryType.NonExecute);
+            // Create storage chest
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Storage'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("Storage"), "'Storage'");
+            }
 
-            // Create player 3
-            NewInventory = CreateNewInventory();
-            ExecuteCommand("INSERT INTO Player ([PlayerID], [InventoryID], [Class], [Level], [Experience], [Progress]) " +
-                "Values(3, " + NewInventory.ToString() + ", 'Bandit', 0, 0, 'New')", QueryType.NonExecute);
+            // Create equipment
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Equipment'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("Equipment"), "'Equipment'");
+            }
+
+            // Create shop
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Shop'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("Shop"), "'Shop'");
+            }
+
+            // Create Enchanter
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Enchanter'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("Enchanter"), "'Enchanter'");
+            }
+
         }
 
-        // Creates an inventory and returns the new ID
-        private static Int32 CreateNewInventory()
+        #endregion
+
+        #region Key finding functions
+
+        ///////////////////////////////////////
+        // KEY FINDING
+        ///////////////////////////////////////
+
+        private static Int32 GetNewPlayerID()
         {
-            Int32 NewInventory = 0;
+            Int32 NewPlayerID = 0;
+            while (ExecuteCommand("SELECT COUNT(*) FROM Player WHERE [PlayerID] = " + (++NewPlayerID).ToString(), QueryType.Scalar)) ;
+
+            return NewPlayerID;
+        }
+
+        private static Int32 LastObjectKey = 0;
+        private static Int32 GetNewObjectID()
+        {
+
+            Int32 NewKey = LastObjectKey;
+
+            // Get a new key
+            while (ExecuteCommand("SELECT COUNT(*) FROM GameObject WHERE [ObjectID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+
+            LastObjectKey = NewKey;
+
+            return NewKey;
+        }
+
+        private static Int32 LastEnemyKey = 0;
+        private static Int32 GetNewEnemyID()
+        {
+            Int32 NewKey = LastEnemyKey;
+
+            // Get a new key
+            while (ExecuteCommand("SELECT COUNT(*) FROM Enemy WHERE [EnemyID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+
+            LastEnemyKey = NewKey;
+
+            return NewKey;
+        }
+
+        private static Int32 LastEnemyManagerKey = 0;
+        private static Int32 GetNewEnemyManagerID()
+        {
+            Int32 NewKey = LastEnemyManagerKey;
+
+            // Get a new key
+            while (ExecuteCommand("SELECT COUNT(*) FROM EnemyManager WHERE [UniqueID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+
+            LastEnemyManagerKey = NewKey;
+
+            return NewKey;
+        }
+
+        private static Int32 LastInventory = 0;
+        private static Int32 GetNewInventoryID()
+        {
+            Int32 NewKey = LastInventory;
 
             // Get new inventory ID
-            while (ExecuteCommand("SELECT COUNT(*) FROM Inventory WHERE [InventoryID] = " + (++NewInventory).ToString(), QueryType.Scalar)) ;
+            while (ExecuteCommand("SELECT COUNT(*) FROM Inventory WHERE [InventoryID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
 
-            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(" + NewInventory.ToString() + ")", QueryType.NonExecute);
+            LastInventory = NewKey;
 
-            return NewInventory;
+            return NewKey;
         }
 
+
+        private static Int32 LastItemKey = 0;
+        public static Int32 GetNewItemID()
+        {
+            Int32 NewKey = LastItemKey;
+
+            // Get a new key
+            while (ExecuteCommand("SELECT COUNT(*) FROM Item WHERE [ItemID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+
+            LastItemKey = NewKey;
+
+            return NewKey;
+        }
+
+        private static Int32 LastObjectManagerKey = 0;
+        public static Int32 GetNewObjectManagerID()
+        {
+            Int32 NewKey = LastObjectManagerKey;
+
+            while (ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [UniqueID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+
+            LastObjectManagerKey = NewKey;
+
+            return NewKey;
+        }
+
+        #endregion
+
+        #region Data insertion
+
         ///////////////////////////////////////
-        // ADDING ENTRIES (called by editor GUI)
+        // ADDING ENTRIES
         ///////////////////////////////////////
+
+        public static void CreatePlayer(String Class)
+        {
+            // Only allow one of each class
+            ExecuteCommand("DELETE FROM Player WHERE Class = '" + Class + "'", QueryType.NonExecute);
+
+            // Get new unique IDs
+            Int32 NewInventory = AddNewInventoryToDataBase();
+            Int32 NewPlayerID = GetNewPlayerID();
+
+            // Insert player
+            ExecuteCommand("INSERT INTO Player ([PlayerID], [InventoryID], [Class], [Level], [Experience], [Progress], [Gold]) " +
+                "Values(" + NewPlayerID.ToString() + ", " + NewInventory.ToString() + ", '" + Class + "', 0, 0, 'New', 0)", QueryType.NonExecute);
+        }
+
+        public static void CreateLevelEnemies(Int32 Count, Int32[] IDPool)
+        {
+            Int32 NewID;
+            Int32 IDIndex;
+
+            for (int Index = 0; Index < Count; Index++)
+            {
+                // Randomly choose from pool
+                IDIndex = Random.Next(0, IDPool.Length);
+
+                // Grab the ID from this pool
+                NewID = IDPool[IDIndex];
+
+                // Add this enemy
+                AddEnemyToManager(NewID);
+            }
+        }
+
+        public static void CreateLevelObjects(Int32 Count, Int32[] IDPool)
+        {
+            Int32 NewID;
+            Int32 IDIndex;
+
+            for (int Index = 0; Index < Count; Index++)
+            {
+                // Randomly choose from pool
+                IDIndex = Random.Next(0, IDPool.Length);
+
+                // Grab the ID from this pool
+                NewID = IDPool[IDIndex];
+
+                // Add this object
+                AddObjectToManager(NewID);
+            }
+        }
 
         public static bool AddItemToDataBase(String Slot, Int32 Armor, Int32 Primary, Int32 Vitality,
             String Name, Int32 Level, Int32 Attack, Int32 AttackSpeedBonus)
         {
-            Int32 NewKey = 0;
-
-            // Get a new key
-            while (ExecuteCommand("SELECT COUNT(*) FROM Item WHERE [ItemID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+            Int32 NewKey = GetNewItemID();
 
             return ExecuteCommand("INSERT INTO Item ([Slot], [Armor], [Primary], [Vitality], [Name], [Level], [Attack], [AttackSpeedBonus], [ItemID]) " +
                 "Values('" + Slot.ToString() + "', " + Armor.ToString() + ", " + Primary.ToString() + ", " + Vitality.ToString() + ", '" + Name + "', "
                  + Level.ToString() + ", " + Attack.ToString() + ", " + AttackSpeedBonus.ToString() + ", " + NewKey.ToString() + ")", QueryType.NonExecute);
         }
 
+        private static Int32 AddNewInventoryToDataBase()
+        {
+            Int32 NewInventory = GetNewInventoryID();
+
+            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(" + NewInventory.ToString() + ")", QueryType.NonExecute);
+
+            return NewInventory;
+        }
+
         public static bool AddObjectToDataBase(String Name)
         {
-            Int32 NewKey = 0;
-
-            // Get a new key
-            while (ExecuteCommand("SELECT COUNT(*) FROM GameObject WHERE [ObjectID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+            Int32 NewKey = GetNewObjectID();
 
             return ExecuteCommand("INSERT INTO GameObject ([ObjectID], [ObjectName]) " + "Values(" + NewKey.ToString() + ", '" + Name + "')", QueryType.NonExecute);
 
@@ -171,38 +279,26 @@ namespace River
 
         public static bool AddEnemyToDataBase(String Name)
         {
-            Int32 NewKey = 0;
-
-            // Get a new key
-            while (ExecuteCommand("SELECT COUNT(*) FROM Enemy WHERE [EnemyID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+            Int32 NewKey = GetNewEnemyID();
 
             return ExecuteCommand("INSERT INTO Enemy ([EnemyID], [EnemyName]) " + "Values(" + NewKey.ToString() + ", '" + Name + "')", QueryType.NonExecute);
         }
 
-        ///////////////////////////////////////
-        // ADDING ENTRIES (called by "level" or "player")
-        ///////////////////////////////////////
-
         public static bool AddEnemyToManager(Int32 ID)
         {
-            Int32 NewKey = 0;
-            Int32 NewInventory = CreateNewInventory();
-
-            // Get a new key
-            while (ExecuteCommand("SELECT COUNT(*) FROM EnemyManager WHERE [UniqueID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
+            Int32 NewKey = GetNewEnemyManagerID();
+            Int32 NewInventory = AddNewInventoryToDataBase();
 
             return ExecuteCommand("INSERT INTO EnemyManager ([EnemyID], [InventoryID], [UniqueID]) " + "Values(" + ID.ToString() + ", " + NewInventory.ToString() + ", " + NewKey.ToString() + ")", QueryType.NonExecute);
         }
 
-        public static bool AddObjectToManager(Int32 ID)
+        public static bool AddObjectToManager(Int32 ID, String Identifier = "''")
         {
-            Int32 NewKey = 0;
-            Int32 NewInventory = CreateNewInventory();
+            Int32 NewKey = GetNewObjectManagerID();
+            Int32 NewInventory = AddNewInventoryToDataBase();
 
-            // Get a new key
-            while (ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [UniqueID] = " + (++NewKey).ToString(), QueryType.Scalar)) ;
-
-            return ExecuteCommand("INSERT INTO ObjectManager ([ObjectID], [InventoryID], [UniqueID]) " + "Values(" + ID.ToString() + ", " + NewInventory.ToString() + ", " + NewKey.ToString() + ")", QueryType.NonExecute);
+            return ExecuteCommand("INSERT INTO ObjectManager ([ObjectID], [InventoryID], [UniqueID], [Identifier]) " +
+                "Values(" + ID.ToString() + ", " + NewInventory.ToString() + ", " + NewKey.ToString() + ", " + Identifier.ToString() + ")", QueryType.NonExecute);
         }
 
         public static bool AddItemToInventory(Int32 ItemID, Int32 InventoryID)
@@ -210,10 +306,9 @@ namespace River
             return ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(" + ItemID.ToString() + ", " + InventoryID.ToString() + ")", QueryType.NonExecute);
         }
 
-        public static bool RemoveItemFromInventory(Int32 ItemID, Int32 InventoryID)
-        {
-            return ExecuteCommand("REMOVE FROM InventoryManager WHERE [InventoryID] = " + ItemID.ToString() + " AND [ItemID] = " + InventoryID.ToString() + ")", QueryType.NonExecute);
-        }
+        #endregion
+
+        #region Removing entries
 
         ///////////////////////////////////////
         // REMOVING ENTRIES (called by editor GUI)
@@ -234,66 +329,253 @@ namespace River
             return ExecuteCommand("DELETE FROM Enemy WHERE [EnemyID] = " + ID.ToString(), QueryType.NonExecute);
         }
 
-        private static bool DeleteUnusedInventories()
+        public static bool RemoveItemFromInventory(Int32 ItemID, Int32 InventoryID)
         {
-            // TODO!
-            return false;
+            return ExecuteCommand("REMOVE FROM InventoryManager WHERE [InventoryID] = " + ItemID.ToString() + " AND [ItemID] = " + InventoryID.ToString() + ")", QueryType.NonExecute);
         }
+
+        public static void RemoveAllEnemies()
+        {
+            LastEnemyManagerKey = 0;
+            ExecuteCommand("DELETE FROM EnemyManager", QueryType.NonExecute);
+        }
+
+        public static void RemoveAllObjects()
+        {
+            LastObjectManagerKey = 0;
+            ExecuteCommand("DELETE FROM ObjectManager WHERE Identifier = ''", QueryType.NonExecute);
+        }
+
+        public static void RemoveUnusedInventories()
+        {
+            ExecuteCommand("DELETE FROM Inventory WHERE InventoryID NOT IN " +
+                "(SELECT InventoryID FROM Player UNION " +
+                "SELECT InventoryID FROM EnemyManager UNION " +
+                "SELECT InventoryID FROM ObjectManager)", QueryType.NonExecute);
+
+            ExecuteCommand("DELETE FROM InventoryManager WHERE InventoryID NOT IN " +
+                "(SELECT InventoryID FROM Player UNION " +
+                "SELECT InventoryID FROM EnemyManager UNION " +
+                "SELECT InventoryID FROM ObjectManager)", QueryType.NonExecute);
+        }
+
+        #endregion
+
+        public static Int32 GetPlayerInventoryID(String Class)
+        {
+            List<Object> InventoryID;
+
+            ExecuteCommand("SELECT InventoryID FROM Player WHERE Class = '" + Class + "'", QueryType.Reader, out InventoryID);
+
+            if (InventoryID.Count <= 0)
+            {
+                throw new Exception("Something went wrong");
+            }
+
+            return (Int32)InventoryID[0];
+        }
+
+        private static Int32 GetObjectID(String ObjectName)
+        {
+            List<Object> ObjectID;
+
+            ExecuteCommand("SELECT ObjectID FROM GameObject WHERE ObjectName = '" + ObjectName + "'", QueryType.Reader, out ObjectID);
+
+            if (ObjectID.Count <= 0)
+            {
+                throw new Exception("Something went wrong");
+            }
+
+            return (Int32)ObjectID[0];
+        }
+
+        public static Int32 GetEnemyInventoryID(Int32 EnemyIndex)
+        {
+            List<Object> InventoryID;
+
+            ExecuteCommand("SELECT InventoryID FROM EnemyManager WHERE UniqueID = " + EnemyIndex.ToString(), QueryType.Reader, out InventoryID);
+
+            if (InventoryID.Count <= 0)
+            {
+                throw new Exception("Something went wrong");
+            }
+
+            return (Int32)InventoryID[0];
+        }
+
+        public static Int32 GetObjectInventoryID(Int32 ObjectIndex)
+        {
+            List<Object> InventoryID;
+
+            ExecuteCommand("SELECT InventoryID FROM ObjectManager WHERE UniqueID = " + ObjectIndex.ToString(), QueryType.Reader, out InventoryID);
+
+            if (InventoryID.Count <= 0)
+            {
+                throw new Exception("Something went wrong");
+            }
+
+            return (Int32)InventoryID[0];
+        }
+
+        public static Int32 GetEnchanterInventoryID()
+        {
+            return GetSpecialInventoryID("Enchanter");
+        }
+
+        public static Int32 GetShopInventoryID()
+        {
+            return GetSpecialInventoryID("Shop");
+        }
+
+        public static Int32 GetStorageInventoryID()
+        {
+            return GetSpecialInventoryID("Storage");
+        }
+
+        public static Int32 GetEquipmentInventoryID()
+        {
+            return GetSpecialInventoryID("Equipment");
+        }
+
+        private static Int32 GetSpecialInventoryID(String Identifier)
+        {
+            List<Object> InventoryID;
+
+            ExecuteCommand("SELECT InventoryID FROM ObjectManager WHERE Identifier = '" + Identifier.ToString() + "'", QueryType.Reader, out InventoryID);
+
+            if (InventoryID.Count <= 0)
+            {
+                throw new Exception("Something went wrong");
+            }
+
+            return (Int32)InventoryID[0];
+        }
+
+        public static Item AddRandomItem(Int32 InventoryID, Int32 BaseLevel)
+        {
+            List<Object> PossibleItemIDs;
+            Item ReturnedItem = null;
+
+            // Generate a random item with level from BaseLevel - 3 to BaseLevel
+            ExecuteCommand("SELECT ItemID FROM Item WHERE Level <= " + BaseLevel.ToString() + " " +
+                "AND Level >= " + (BaseLevel - 3).ToString(), QueryType.Reader, out PossibleItemIDs);
+
+            if (PossibleItemIDs.Count == 0)
+                return ReturnedItem;
+
+            Int32 SelectedItemID = (Int32)PossibleItemIDs[Random.Next(0, PossibleItemIDs.Count)];
+
+            ExecuteCommand("INSERT INTO InventoryManager ([InventoryID], [ItemID]) " + "Values(" +
+                InventoryID.ToString() + ", " + SelectedItemID.ToString() + ")", QueryType.NonExecute);
+
+            return ReadItemFromDataBase(SelectedItemID);
+        }
+
+        private static Item ReadItemFromDataBase(Int32 ItemID)
+        {
+            Item ObtainedItem = null;
+            List<Object> Result;
+
+            ExecuteCommand("SELECT * FROM Item WHERE [ItemID] = " + ItemID.ToString(), QueryType.Reader, out Result);
+
+            if (Result.Count > 0)
+            {
+                Int32 Armor = (Int32)Result[1];
+                Int32 Primary = (Int32)Result[2];
+                Int32 Vitality = (Int32)Result[3];
+                String Name = (String)Result[4];
+                Int32 Level = (Int32)Result[5];
+                Int32 Attack = (Int32)Result[6];
+                float AttackSpeedBonus = (float)((double)Result[7]);
+                
+                switch ((String)Result[0])
+                {
+                    case "Amulet":
+                        ObtainedItem = new Items.Amulet(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Chest":
+                        ObtainedItem = new Items.Chest(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Feet":
+                        ObtainedItem = new Items.Feet(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Hands":
+                        ObtainedItem = new Items.Hands(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Head":
+                        ObtainedItem = new Items.Head(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Legs":
+                        ObtainedItem = new Items.Legs(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Offhand":
+                        ObtainedItem = new Items.Offhand(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Ring":
+                        ObtainedItem = new Items.Ring(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+                    case "Weapon":
+                        ObtainedItem = new Items.Weapon(Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus);
+                        break;
+
+                    default:
+                    case "None":
+                        throw new Exception("I dont think there should be any items in the database without a specified slot.");
+                        break;
+
+                }
+            }
+
+            return ObtainedItem;
+        }
+
+        #region Query entries
 
         ///////////////////////////////////////
         // ACCESS ENTRIES
         ///////////////////////////////////////
 
-        public static void CreateEnemies(Int32 Count, Int32[] IDPool)
-        {
-            Int32 NewID;
-            Int32 IDIndex;
-
-            // Delete old enemies
-            ExecuteCommand("DELETE FROM EnemyManager WHERE 1 = 1", QueryType.NonExecute);
-
-            for (int Index = 0; Index < Count; Index++)
-            {
-                // Randomly choose from pool
-                IDIndex = Random.Next(0, IDPool.Length);
-
-                // Grab the ID from this pool
-                NewID = IDPool[IDIndex];
-
-                // Add this enemy
-                AddEnemyToManager(NewID);
-            }
-        }
-
-        public static void CreateObjects(Int32 Count, Int32[] IDPool)
-        {
-            Int32 NewID;
-            Int32 IDIndex;
-
-            // Delete old enemies
-            ExecuteCommand("DELETE FROM ObjectManager WHERE 1 = 1", QueryType.NonExecute);
-
-            for (int Index = 0; Index < Count; Index++)
-            {
-                // Randomly choose from pool
-                IDIndex = Random.Next(0, IDPool.Length);
-
-                // Grab the ID from this pool
-                NewID = IDPool[IDIndex];
-
-                // Add this object
-                AddObjectToManager(NewID);
-            }
-        }
-
         public static List<Object> GetItemsFromInventory(String InventoryID)
         {
             List<Object> Result;
 
-            ExecuteCommand("SELECT [ItemID] FROM InventoryManager WHERE [InventoryID] = " + InventoryID.ToString(), QueryType.Reader, out Result) ;
+            ExecuteCommand("SELECT [ItemID] FROM InventoryManager WHERE [InventoryID] = " + InventoryID.ToString(), QueryType.Reader, out Result);
 
             return Result;
         }
+
+        public static List<Object> GetEnemies()
+        {
+            List<Object> Result;
+
+            ExecuteCommand("SELECT [EnemyID] FROM EnemyManager", QueryType.Reader, out Result);
+
+            return Result;
+        }
+
+        public static List<Object> GetObjects()
+        {
+            List<Object> Result;
+
+            ExecuteCommand("SELECT [ObjectID] FROM ObjectManager WHERE Identifier = ''", QueryType.Reader, out Result);
+
+            return Result;
+        }
+
+        public static List<Object> GetObjectIDs()
+        {
+            List<Object> Result;
+
+            ExecuteCommand("SELECT [UniqueID] FROM ObjectManager WHERE Identifier = ''", QueryType.Reader, out Result);
+
+            return Result;
+        }
+
+
+
+        #endregion
+
+        #region Execute command functions
 
         // Executes an SQL command on both the local copy (temporary) and main (permenant) database.
         // Returns true if the SQL command affected any rows.
@@ -301,6 +583,8 @@ namespace River
         {
             int AffectedRowsMain = 0;
             int AffectedRowsLocal = 0;
+
+
 
             CommandMain.CommandText = QueryText;
             CommandLocal.CommandText = QueryText;
@@ -328,7 +612,6 @@ namespace River
                     break;
             }
 
-
             if (AffectedRowsMain != AffectedRowsLocal)
                 throw new Exception("Mismatch on main and local database copies!");
 
@@ -348,8 +631,6 @@ namespace River
 
             CommandMain.CommandText = QueryText;
             CommandLocal.CommandText = QueryText;
-
-
 
             switch (QueryType)
             {
@@ -387,5 +668,8 @@ namespace River
 
             return false;
         }
+
+        #endregion
+
     }
 }

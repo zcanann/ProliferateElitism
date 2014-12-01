@@ -20,12 +20,13 @@ namespace River
         private static Texture2D Elemental;
 
         private bool IsBoss = false;
+        private Int32 MyEnemyID = -1;
 
         public LootInventory Inventory;
 
         public EntityType Type;
         public float AgroRadius = 480f;
-        public float AttackRadius = 112f;//112f;
+        public float AttackRadius = 112f;
         private bool HasAgro = false;
 
         private CircleEmitter LootSparkle = null;
@@ -33,11 +34,11 @@ namespace River
         private static SpriteBatchRenderer ParticleRenderer = null;
         //protected static Texture2D ParticleTexture;
 
-        public Enemy(Vector2 Position, Level LevelPTR, EntityType Type, int ExpForKill)
+        public Enemy(Vector2 Position, Level LevelPTR, EntityType Type, int ExpForKill, Int32 MyEnemyID)
             : base(Position, LevelPTR)
         {
             this.Type = Type;
-            
+            this.MyEnemyID = MyEnemyID;
             switch (Type)
             {
                 case EntityType.Goblin:
@@ -68,8 +69,8 @@ namespace River
             }
 
 
-            Inventory = new LootInventory();
-            Gold = (long)Random.Next(LevelID, LevelID * 15);
+            Inventory = new LootInventory(GameDB.GetEnemyInventoryID(MyEnemyID));
+            Gold = (long)Random.Next(LevelValue, LevelValue * 15);
             Experience = ExpForKill;
 
             int Size = 128;
@@ -251,7 +252,7 @@ namespace River
                     IsAlive = false;
                     Health = 0;
                     SpriteAnimation.CurrentAnimation = GetDeathAnimation();
-                    Inventory.GenerateDrops(Type, LevelID, Player.MagicFind, IsBoss);
+                    Inventory.GenerateDrops(MyEnemyID, LevelValue);
                     LoadLootSparkle();
                     LevelPTR.GivePlayerGoldExp(Gold, Experience);
 

@@ -16,9 +16,12 @@ namespace River
         public const int InventoryRowSize = 8;
         public const int InventorySlots = 40;
 
+        protected Int32 InventoryID = -1;
 
-        public StandardInventory()
+
+        public StandardInventory(Int32 InventoryID)
         {
+            this.InventoryID = InventoryID;
             Initialize();
         }
 

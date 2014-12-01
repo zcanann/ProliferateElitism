@@ -9,8 +9,8 @@ namespace River
     {
         private int EnchantingSlots = 1;
 
-        public EnchantingInventory() :
-            base()
+        public EnchantingInventory(Int32 InventoryID) :
+            base(InventoryID)
         {
             //Base will just call our initialize
         }

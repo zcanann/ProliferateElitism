@@ -18,8 +18,8 @@ namespace River
 
         private static Level LevelPTR;
 
-        public Equipment(Level _LevelPTR)
-            : base()
+        public Equipment(Level _LevelPTR, Int32 InventoryID)
+            : base(InventoryID)
         {
             //Base will just call initialize
 

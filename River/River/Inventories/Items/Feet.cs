@@ -8,13 +8,13 @@ namespace River.Items
 {
     class Feet : Item
     {
-        public Feet(int EnemyLevel, float MagicFind)
-            : base(EnemyLevel, MagicFind, SlotType.Feet)
+        public Feet(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
+            : base(SlotType.Feet, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
         {
 
         }
 
-        public override void RandomizeStats(int EnemyLevel)
+        /*public override void RandomizeStats(int EnemyLevel)
         {
             base.RandomizeStats(EnemyLevel);
             this.Attack = 0;
@@ -47,7 +47,7 @@ namespace River.Items
                 this.Buff = new Buff("Movement Haste " + DisplayHaste.ToString() + "%", Buff.StateType.None, Buff.Indefinite, Buff.Indefinite, 0f, BuffHaste);
             }
 
-        }
+        }*/
 
         protected override void SetIcon()
         {

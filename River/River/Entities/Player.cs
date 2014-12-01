@@ -67,8 +67,8 @@ namespace River
         {
             this.Class = Class;
             Skill = new Skill(LevelPTR, Class, this);
-            Inventory = new StandardInventory();
-            Equipment = new Equipment(LevelPTR);
+            Inventory = new StandardInventory(GameDB.GetPlayerInventoryID(Class.ToString()));
+            Equipment = new Equipment(LevelPTR, GameDB.GetEquipmentInventoryID());
             SetStatText();
         }
 
@@ -196,8 +196,6 @@ namespace River
                     StatText[6] = "Strength: " + (BasePrimary + BonusPrimary).ToString();
                     break;
             }
-            
-            
 
         }
 
@@ -224,7 +222,9 @@ namespace River
             if (LootingInventory != null) //Shouldn't ever be null, depends if I fixed it. Just in case.
             {
                 if (LootingInventory.GenerateOnLoot == true)
-                    LootingInventory.GenerateDrops(Class, LevelID, MagicFind, false);
+                {
+                    LootingInventory.GenerateDrops(LevelValue);
+                }
 
                 //Open both inventory and other
                 MenuManager.OpenLootMenu(true);
@@ -429,7 +429,7 @@ namespace River
             this.Gold += Gold;
             FloatingGoldNumbers.Add(new FloatingNumber("+" + Gold.ToString(), 1000f, false));
 
-            if (LevelID < LevelCap)
+            if (LevelValue < LevelCap)
             {
                 Experience += KillExp;
                 FloatingExpNumbers.Add(new FloatingNumber("+EXP", 1000f, false));
@@ -439,7 +439,7 @@ namespace River
                 {
                     //TODO: PARTICLE EFFECT FOR LEVELING
                     Experience -= ExpPerLevel;
-                    if (++LevelID == LevelCap)
+                    if (++LevelValue == LevelCap)
                         Experience = ExpPerLevel;
                 }
             }

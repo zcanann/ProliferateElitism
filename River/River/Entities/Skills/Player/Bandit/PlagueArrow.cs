@@ -33,13 +33,13 @@ namespace River.Skills
             //MAIN:
             ////////////
 
-            SetEffect(ref MainEffect, 16f, Color.White, 8, new VariableFloat { Value = 24f, Variation = 4f }, 0.1f, 100f);
+            SetEffect(ref MainEffect, 16f, Color.Green, 8, new VariableFloat { Value = 24f, Variation = 4f }, 0.1f, 100f);
 
             ////////////
             //SECONDARY:
             ////////////
 
-            SetEffect(ref SecondaryEffect, 2f, Color.Gray, 4, new VariableFloat { Value = 3f, Variation = 4f }, 0.5f, 300f);
+            SetEffect(ref SecondaryEffect, 2f, Color.Black, 4, new VariableFloat { Value = 3f, Variation = 4f }, 0.5f, 300f);
 
 
             //Initialize

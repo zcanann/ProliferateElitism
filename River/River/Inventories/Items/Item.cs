@@ -24,13 +24,6 @@ namespace River
             None,
         }
 
-        protected enum SocketStateType
-        {
-            None,
-            Empty,
-            Filled
-        }
-
         public enum QualityType
         {
             White = 0,
@@ -107,12 +100,18 @@ namespace River
         public float MagicFind;
         public float GoldFind;
 
-        public Item(int EnemyLevel, float MagicFind, SlotType Slot)
+        public Item(SlotType Slot, int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
         {
             this.Slot = Slot;
-            this.RandomizeQuality(MagicFind);
-            this.RandomizeStats(EnemyLevel);
-            this.TryGiveBuff();
+            this.Armor = Armor;
+            this.Primary = Primary;
+            this.Vitality = Vitality;
+            this.ItemName = Name;
+            this.ItemLevel = Level;
+            this.Attack = Attack;
+            this.AttackSpeedBonus = AttackSpeedBonus;
+
+            //this.TryGiveBuff();
             this.SetIcon();
             this.SetPrice();
             this.SetText();
@@ -241,8 +240,6 @@ namespace River
                     break;
             }
 
-
-
             if (this.MagicFind != 0)
                 ItemInfo[CurrentIndex++] = "Magic Find: " + Math.Round((100f * MagicFind)).ToString() + "%";
             if (this.GoldFind != 0)
@@ -271,7 +268,7 @@ namespace River
         protected virtual void SetIcon() { } //Overloads take care of this
 
 
-        public virtual void RandomizeStats(int EnemyLevel)
+        /*public virtual void RandomizeStats(int EnemyLevel)
         {
             //Randomize item level
             ItemLevel = Random.Next(EnemyLevel - 5, EnemyLevel);
@@ -300,7 +297,7 @@ namespace River
                 (WorkingItemLevel + Random.Next(-WorkingItemLevel / 2, WorkingItemLevel / 2)) / 300f, 2);
 
             ItemName = GenerateName();
-        }
+        }*/
 
         private const int MinValForEnchant = 5; //Numbers < this and > 0 have issues with enchanting formula
 
@@ -344,7 +341,7 @@ namespace River
             }
         }
 
-        protected virtual void TryGiveBuff() { } //Overrides take care of this
+        //protected virtual void TryGiveBuff() { } //Overrides take care of this
 
         private string GenerateName()
         {
@@ -354,7 +351,7 @@ namespace River
         }
 
 
-        private const float OrangeChance = 0.25f / 100f; //.25
+        /*private const float OrangeChance = 0.25f / 100f; //.25
         private const float YellowChance = 4f / 100f;
         private const float BlueChance = 12f / 100f; //12
         //======= Remaining chance is white chance =======\\
@@ -377,7 +374,7 @@ namespace River
             else
                 Quality = QualityType.White;
 
-        }
+        }*/
 
         public void Draw(SpriteBatch SpriteBatch, Vector2 Position)
         {

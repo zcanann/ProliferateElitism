@@ -52,7 +52,7 @@ namespace River
 
         //ATTRIBUTES
         public const int LevelCap = 20;
-        public int LevelID = 1;
+        public int LevelValue = 1;
 
         //For enemies these will serve as given/dropped
 

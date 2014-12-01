@@ -34,13 +34,13 @@ namespace River.Skills
             //MAIN:
             ////////////
 
-            SetEffect(ref MainEffect, 16f, Color.White, 24, new VariableFloat { Value = 16f, Variation = 4f }, 0.5f, 100f);
+            SetEffect(ref MainEffect, 8f, Color.Black, 12, new VariableFloat { Value = 8f, Variation = 4f }, 0.5f, 100f);
 
             ////////////
             //SECONDARY:
             ////////////
 
-            SetEffect(ref SecondaryEffect, 2f, Color.Gray, 24, new VariableFloat { Value = 4f, Variation = 0f }, 0.5f, 300f);
+            SetEffect(ref SecondaryEffect, 4f, Color.White, 8, new VariableFloat { Value = 4f, Variation = 0f }, 0.5f, 200f);
 
             //Initialize
             MainEffect.ParticleTexture = ParticleTexture;

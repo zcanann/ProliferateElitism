@@ -395,7 +395,7 @@ namespace River
         protected static void LatchToTarget(Level LevelPTR, ref Vector2 EmitterPos, int LatchEnemyIndex)
         {
             //Latch to whatever was hit
-            if (LatchEnemyIndex != -1)
+            if (LatchEnemyIndex >= 0 && LatchEnemyIndex < LevelPTR.Enemies.Length)
                 EmitterPos = LevelPTR.Enemies[LatchEnemyIndex].Position;
         }
 

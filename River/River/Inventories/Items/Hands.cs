@@ -8,18 +8,18 @@ namespace River.Items
 {
     class Hands : Item
     {
-        public Hands(int EnemyLevel, float MagicFind)
-            : base(EnemyLevel, MagicFind, SlotType.Hands)
+        public Hands(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
+            : base(SlotType.Hands, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
         {
 
         }
 
-        public override void RandomizeStats(int EnemyLevel)
+        /*public override void RandomizeStats(int EnemyLevel)
         {
             base.RandomizeStats(EnemyLevel);
             this.Attack = 0;
             this.AttackSpeedBonus = 0;
-        }
+        }*/
 
         protected override void SetIcon()
         {

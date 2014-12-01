@@ -11,8 +11,8 @@ namespace River
         public const int StorageRowSize = 8;
         public const int StorageSlots = 64;
 
-        public StorageInventory()
-            : base()
+        public StorageInventory(Int32 InventoryID)
+            : base(InventoryID)
         {
 
         }

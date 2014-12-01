@@ -8,13 +8,13 @@ namespace River.Items
 {
     class Weapon : Item
     {
-        public Weapon(int EnemyLevel, float MagicFind)
-            : base(EnemyLevel, MagicFind, SlotType.Weapon)
+        public Weapon(int Armor, int Primary, int Vitality, String Name, int Level, int Attack, float AttackSpeedBonus)
+            : base(SlotType.Weapon, Armor, Primary, Vitality, Name, Level, Attack, AttackSpeedBonus)
         {
 
         }
 
-        public override void RandomizeStats(int EnemyLevel)
+        /*public override void RandomizeStats(int EnemyLevel)
         {
             base.RandomizeStats(EnemyLevel);
             this.Armor = 0;
@@ -93,7 +93,7 @@ namespace River.Items
                 this.DebuffOnAttack = new Buff(BuffText, BuffType, Duration, TickDuration, 0f, SpeedMultiplier);
             }
 
-        }
+        }*/
 
         protected override void SetIcon()
         {

@@ -18,7 +18,6 @@ namespace River
         public Enemy[] Enemies;
         public List<DamageEmitter> DamageEmitters = new List<DamageEmitter>();
         private ChestInventory[] Chests;
-        private WeaponRackInventory[] WeaponRacks;
         public ShopInventory ShopInventory;
         public StorageInventory StorageInventory;
         public EnchantingInventory EnchantingInventory;
@@ -33,8 +32,8 @@ namespace River
         {
             //Create Player/Map
             LevelMap = new TileMap();
-            EnchantingInventory = new EnchantingInventory();
-            StorageInventory = new StorageInventory();
+            EnchantingInventory = new EnchantingInventory(GameDB.GetEnchanterInventoryID());
+            StorageInventory = new StorageInventory(GameDB.GetStorageInventoryID());
         }
 
         public void LoadLevel(bool LevelEditorMode, EntityType Class)
@@ -176,19 +175,74 @@ namespace River
         private void LoadNextMap()
         {
             LevelMap.LoadNextMap();
-            ShopInventory = new ShopInventory(this);
+            ShopInventory = new ShopInventory(this, GameDB.GetShopInventoryID());
+
+            GameDB.RemoveAllObjects();
+            GameDB.RemoveAllEnemies();
+            GameDB.RemoveUnusedInventories();
+
+            LoadObjects();
+            LoadEnemies();
+
+        }
+
+        private void LoadObjects()
+        {
+            Int32 ObjectCount = LevelMap.EnemySpawn.Length;
+
+            GameDB.CreateLevelObjects(ObjectCount, new Int32[] { 1, 2 });
+            List<Object> ObjectTypes = GameDB.GetObjects();
+            List<Object> ObjectIDs = GameDB.GetObjectIDs();
+
+            // Should not happen, but will prevent errors if something weird occurs
+            if (ObjectTypes.Count != ObjectCount)
+            {
+                throw new Exception("Something went wrong");
+                //ObjectCount = ObjectIDs.Count;
+            }
 
             //Create objects
             Chests = new ChestInventory[LevelMap.ChestSpawns.Length];
-            for (int ecx = 0; ecx < LevelMap.ChestSpawns.Length; ecx++)
-                Chests[ecx] = new ChestInventory();
 
-            WeaponRacks = new WeaponRackInventory[LevelMap.WeaponRackSpawns.Length];
-            for (int ecx = 0; ecx < LevelMap.WeaponRackSpawns.Length; ecx++)
-                WeaponRacks[ecx] = new WeaponRackInventory();
+            ChestType NextChestType;
+
+            for (int ecx = 0; ecx < LevelMap.ChestSpawns.Length; ecx++)
+            {
+                switch ((Int32)ObjectTypes[ecx])
+                {
+                    case 1:
+                        NextChestType = ChestType.Chest;
+                        break;
+                    case 2:
+                        NextChestType = ChestType.Lockbox;
+                        break;
+                    default:
+                        NextChestType = ChestType.Chest;
+                        break;
+                }
+
+                Chests[ecx] = new ChestInventory(NextChestType, GameDB.GetObjectInventoryID((Int32)ObjectIDs[ecx]));
+            }
+        }
+
+        private void LoadEnemies()
+        {
+            Int32 EnemyCount = LevelMap.EnemySpawn.Length;
+
+            GameDB.CreateLevelEnemies(EnemyCount, new Int32[] { 1, 2, 3, 4, 5, 6 });
+            List<Object> EnemyIDs = GameDB.GetEnemies();
+
+            // Should not happen, but will prevent errors if something weird occurs
+            if (EnemyIDs.Count != EnemyCount)
+            {
+                throw new Exception("Something went wrong");
+                //EnemyCount = EnemyIDs.Count;
+            }
+
+            EntityType NextEntityType;
 
             //Create enemies
-            Enemies = new Enemy[LevelMap.EnemySpawn.Length];
+            Enemies = new Enemy[EnemyCount];
 
             int CurrentExpPool = LevelMap.ExpPool[LevelMap.RoomSetID][LevelMap.RoomID];
             int ExpShare = 0;
@@ -196,9 +250,37 @@ namespace River
             if (Enemies.Length > 0)
                 ExpShare = CurrentExpPool / Enemies.Length;
 
+            if (ExpShare == 0)
+                ExpShare = 1;
+
             for (int ecx = 0; ecx < Enemies.Length; ecx++)
             {
-                Enemies[ecx] = new Enemy(LevelMap.EnemySpawn[ecx], this, EntityType.Skeleton, ExpShare);
+                switch ((Int32)EnemyIDs[ecx])
+                {
+                    case 1:
+                        NextEntityType = EntityType.Elemental;
+                        break;
+                    case 2:
+                        NextEntityType = EntityType.Goblin;
+                        break;
+                    case 3:
+                        NextEntityType = EntityType.Ogre;
+                        break;
+                    case 4:
+                        NextEntityType = EntityType.Skeleton;
+                        break;
+                    case 5:
+                        NextEntityType = EntityType.Slime;
+                        break;
+                    case 6:
+                        NextEntityType = EntityType.Zombie;
+                        break;
+                    default:
+                        NextEntityType = EntityType.Skeleton;
+                        break;
+                }
+
+                Enemies[ecx] = new Enemy(LevelMap.EnemySpawn[ecx], this, NextEntityType, ExpShare, (Int32)EnemyIDs[ecx]);
 
             }
         }
@@ -208,7 +290,7 @@ namespace River
             Player.Position = LevelMap.PlayerSpawn;
             if (Player.SpriteAnimation != null)
                 Player.SpriteAnimation.Position = LevelMap.PlayerSpawn;
-            ShopInventory.GenerateShopItems(Player.LevelID);
+            ShopInventory.GenerateShopItems(Player.LevelValue);
             Player.UpdateCamera();
         }
 
@@ -256,16 +338,6 @@ namespace River
                         Player.NearLootable = true;
                         return Chests[ecx];
                     }
-            }
-
-            //Weapon racks
-            for (int ecx = 0; ecx < WeaponRacks.Length; ecx++)
-            {
-                if (Tile.IntersectionTest(LevelMap.WeaponRackSpawns[ecx], Player.Position, Tile.TileWidth))
-                {
-                    Player.NearLootable = true;
-                    return WeaponRacks[ecx];
-                }
             }
 
             Player.NearLootable = false;
@@ -414,7 +486,7 @@ namespace River
                 else
                 {
                     //Owned by enemy, test vs player
-                    if (!DamageEmitters[ecx].IsMarkedDead() && 
+                    if (!DamageEmitters[ecx].IsMarkedDead() &&
                         DamageEmitters[ecx].Intersects(Player.Position, -1))
                     {
                         //Add any spell debuffs to player
@@ -667,7 +739,7 @@ namespace River
             SpriteBatch.DrawString(DebugFont, "Camera: " + Camera.Location.X.ToString() + ", " + Camera.Location.Y.ToString(), Vector2.Zero, Color.Red);
             SpriteBatch.DrawString(DebugFont, "Player: " + Player.Position.X.ToString() + ", " + Player.Position.Y.ToString(), new Vector2(0, 16), Color.Red);
             SpriteBatch.DrawString(DebugFont, "Exp: " + Player.Experience.ToString() + " / " + Player.ExpPerLevel.ToString(), new Vector2(0, 32), Color.Red);
-            SpriteBatch.DrawString(DebugFont, "Level: " + Player.LevelID.ToString(), new Vector2(0, 48), Color.Red);
+            SpriteBatch.DrawString(DebugFont, "Level: " + Player.LevelValue.ToString(), new Vector2(0, 48), Color.Red);
 
             Player.DrawGoldFloatingText(SpriteBatch);
             Player.DrawExpFloatingText(SpriteBatch);

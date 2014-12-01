@@ -16,8 +16,8 @@ namespace River
 
         private static Level LevelPTR;
 
-        public ShopInventory(Level _LevelPTR) :
-            base()
+        public ShopInventory(Level _LevelPTR, Int32 InventoryID) :
+            base(InventoryID)
         {
             LevelPTR = _LevelPTR;
         }
@@ -65,49 +65,8 @@ namespace River
         public void GenerateShopItems(int PlayerLevel)
         {
             //Fill first row with blue items
-            for (int ecx = 0; ecx < ShopRowSize * 4; ecx++)
-                this.Items[ecx] = GetRandomBlueItem(PlayerLevel);
-        }
-
-        protected Item GetRandomBlueItem(int PlayerLevel)
-        {
-            Item ReturnItem = null;
-
-            do
-            {
-                switch (Random.Next(0, Enum.GetValues(typeof(Item.SlotType)).Length - 1))
-                {
-                    case (int)Item.SlotType.Amulet:
-                        ReturnItem = new Items.Amulet(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Chest:
-                        ReturnItem = new Items.Chest(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Feet:
-                        ReturnItem = new Items.Feet(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Hands:
-                        ReturnItem = new Items.Hands(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Head:
-                        ReturnItem = new Items.Head(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Legs:
-                        ReturnItem = new Items.Legs(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Offhand:
-                        ReturnItem = new Items.Offhand(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Ring:
-                        ReturnItem = new Items.Ring(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                    case (int)Item.SlotType.Weapon:
-                        ReturnItem = new Items.Weapon(PlayerLevel, Player.MaxMagicFind);
-                        break;
-                }
-            } while (ReturnItem.Quality != Item.QualityType.Blue);
-
-            return ReturnItem;
+            //for (int ecx = 0; ecx < ShopRowSize * 4; ecx++)
+            //    this.Items[ecx] = GetRandomBlueItem(PlayerLevel);
         }
 
         public override void Draw(SpriteBatch SpriteBatch)
