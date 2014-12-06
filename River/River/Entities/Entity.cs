@@ -57,7 +57,7 @@ namespace River
         //For enemies these will serve as given/dropped
 
         public int Experience;
-        public long Gold = 75;
+        public Int32 Gold = 75;
 
         protected int MaxHealth = 100;
         protected int Health = 100;

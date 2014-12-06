@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 
 namespace River
 {
@@ -69,12 +70,37 @@ namespace River
             RemoveAllObjects();
             RemoveUnusedInventories();
 
-            ExecuteCommand("DELETE FROM ObjectManager", QueryType.NonExecute);
+            //RefreshDB();
 
             // Create equipment
-            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'Equipment'", QueryType.Scalar))
+
+            CreateStaticInventories();
+        }
+
+        private static void RefreshDB()
+        {
+            ExecuteCommand("DELETE FROM ObjectManager", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM Player", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM InventoryManager", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM EnemyManager", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM Inventory", QueryType.NonExecute);
+        }
+
+        private static void CreateStaticInventories()
+        {
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'EquipmentM'", QueryType.Scalar))
             {
-                AddObjectToManager(GetObjectID("Equipment"), "'Equipment'");
+                AddObjectToManager(GetObjectID("EquipmentM"), "'EquipmentM'");
+            }
+
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'EquipmentW'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("EquipmentW"), "'EquipmentW'");
+            }
+
+            if (!ExecuteCommand("SELECT COUNT(*) FROM ObjectManager WHERE [Identifier] = 'EquipmentB'", QueryType.Scalar))
+            {
+                AddObjectToManager(GetObjectID("EquipmentB"), "'EquipmentB'");
             }
 
             // Create storage chest
@@ -94,7 +120,6 @@ namespace River
             {
                 AddObjectToManager(GetObjectID("Enchanter"), "'Enchanter'");
             }
-
         }
 
         #endregion
@@ -166,6 +191,12 @@ namespace River
             return NewKey;
         }
 
+        // Use this with caution
+        public static void InsertInventory(Int32 InventoryID)
+        {
+            ExecuteCommand("INSERT INTO Inventory ([InventoryID]) " + "Values(" + InventoryID.ToString() + ")", QueryType.NonExecute);
+        }
+
         private static Int32 LastInventoryManager = 0;
         private static Int32 GetNewInventoryManagerID()
         {
@@ -218,13 +249,29 @@ namespace River
             // Only allow one of each class
             ExecuteCommand("DELETE FROM Player WHERE Class = '" + Class + "'", QueryType.NonExecute);
 
+
+            if (Class == EntityType.Magician.ToString())
+            {
+                ExecuteCommand("DELETE FROM ObjectManager WHERE [Identifier] = 'EquipmentM'", QueryType.NonExecute);
+            }
+            else if (Class == EntityType.Warrior.ToString())
+            {
+                ExecuteCommand("DELETE FROM ObjectManager WHERE [Identifier] = 'EquipmentW'", QueryType.NonExecute);
+            }
+            else if (Class == EntityType.Bandit.ToString())
+            {
+                ExecuteCommand("DELETE FROM ObjectManager WHERE [Identifier] = 'EquipmentB'", QueryType.NonExecute);
+            }
+
+            CreateStaticInventories();
+
             // Get new unique IDs
             Int32 NewInventory = AddNewInventoryToDataBase();
             Int32 NewPlayerID = GetNewPlayerID();
 
             // Insert player
             ExecuteCommand("INSERT INTO Player ([PlayerID], [InventoryID], [Class], [Level], [Experience], [Progress], [Gold]) " +
-                "Values(" + NewPlayerID.ToString() + ", " + NewInventory.ToString() + ", '" + Class + "', 0, 0, 'New', 0)", QueryType.NonExecute);
+                "Values(" + NewPlayerID.ToString() + ", " + NewInventory.ToString() + ", '" + Class + "', 0, 0, '0_0', 0)", QueryType.NonExecute);
         }
 
         public static void CreateLevelEnemies(Int32 Count, Int32[] IDPool)
@@ -345,6 +392,11 @@ namespace River
             return ExecuteCommand("DELETE FROM Enemy WHERE [EnemyID] = " + ID.ToString(), QueryType.NonExecute);
         }
 
+        public static bool DeleteInventoryFromDataBase(Int32 ID)
+        {
+            return ExecuteCommand("DELETE FROM Inventory WHERE [InventoryID] = " + ID.ToString(), QueryType.NonExecute);
+        }
+
         public static bool RemoveItemFromInventory(Int32 ItemID, Int32 InventoryID)
         {
             return ExecuteCommand("REMOVE FROM InventoryManager WHERE [InventoryID] = " + ItemID.ToString() + " AND [ItemID] = " + InventoryID.ToString() + ")", QueryType.NonExecute);
@@ -364,15 +416,13 @@ namespace River
 
         public static void RemoveUnusedInventories()
         {
-            ExecuteCommand("DELETE FROM Inventory WHERE InventoryID NOT IN " +
-                "(SELECT InventoryID FROM Player UNION " +
-                "SELECT InventoryID FROM EnemyManager UNION " +
-                "SELECT InventoryID FROM ObjectManager)", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM Inventory " +
+                "WHERE InventoryID NOT IN (SELECT InventoryID FROM Player) " +
+                "AND InventoryID NOT IN (SELECT InventoryID FROM EnemyManager) " +
+                "AND InventoryID NOT IN (SELECT InventoryID FROM ObjectManager)", QueryType.NonExecute);
 
-            ExecuteCommand("DELETE FROM InventoryManager WHERE InventoryID NOT IN " +
-                "(SELECT InventoryID FROM Player UNION " +
-                "SELECT InventoryID FROM EnemyManager UNION " +
-                "SELECT InventoryID FROM ObjectManager)", QueryType.NonExecute);
+            ExecuteCommand("DELETE FROM InventoryManager " +
+                "WHERE InventoryID NOT IN (SELECT InventoryID FROM Inventory)", QueryType.NonExecute);
         }
 
         #endregion
@@ -382,7 +432,7 @@ namespace River
             List<Object> UniqueID;
 
             // Grab the first item that matches the description of the item being traded
-            ExecuteCommand("SELECT UniqueID FROM InventoryManager WHERE InventoryID = " + OldInventoryID.ToString() + " "+
+            ExecuteCommand("SELECT UniqueID FROM InventoryManager WHERE InventoryID = " + OldInventoryID.ToString() + " " +
                 "AND ItemID = " + ItemID.ToString(), QueryType.Reader, out UniqueID);
 
             if (UniqueID.Count <= 0)
@@ -466,9 +516,20 @@ namespace River
             return GetSpecialInventoryID("Storage");
         }
 
-        public static Int32 GetEquipmentInventoryID()
+        public static Int32 GetEquipmentInventoryID(EntityType Entity)
         {
-            return GetSpecialInventoryID("Equipment");
+            switch (Entity)
+            {
+                case EntityType.Magician:
+                    return GetSpecialInventoryID("EquipmentM");
+                case EntityType.Warrior:
+                    return GetSpecialInventoryID("EquipmentW");
+                case EntityType.Bandit:
+                    return GetSpecialInventoryID("EquipmentB");
+                default:
+                    throw new Exception("Invalid entity type to retrieve inventory for");
+            }
+
         }
 
         private static Int32 GetSpecialInventoryID(String Identifier)
@@ -505,7 +566,7 @@ namespace River
             return ReadItemFromDataBase(SelectedItemID);
         }
 
-        private static Item ReadItemFromDataBase(Int32 ItemID)
+        public static Item ReadItemFromDataBase(Int32 ItemID)
         {
             Item ObtainedItem = null;
             List<Object> Result;
@@ -562,6 +623,41 @@ namespace River
             }
 
             return ObtainedItem;
+        }
+
+        public static void LoadPlayer(EntityType Class, out Int32 PlayerID, out Int32 PlayerInventoryID, out Int32 PlayerLevel,
+            out Int32 PlayerExperience, out Int32 PlayerGold, out String PlayerProgress)
+        {
+            List<Object> Result;
+
+            ExecuteCommand("SELECT * FROM Player WHERE [Class] = '" + Class.ToString() + "'", QueryType.Reader, out Result);
+
+            if (Result.Count > 0)
+            {
+                PlayerID = (Int32)Result[0];
+                PlayerInventoryID = (Int32)Result[1];
+                PlayerLevel = (Int32)Result[3];
+                PlayerExperience = (Int32)Result[4];
+                PlayerProgress = (String)Result[5];
+                PlayerGold = (Int32)Result[6];
+
+                return;
+            }
+
+            throw new Exception("Player could not be loaded from database");
+        }
+
+        public static void UpdatePlayer(EntityType Class, Int32 PlayerLevel, Int32 PlayerExperience, Int32 PlayerGold, String PlayerProgress)
+        {
+            ExecuteCommand("UPDATE Player SET Level = " + PlayerLevel.ToString() + " " +
+                 "WHERE Class = '" + Class.ToString() + "'", QueryType.NonExecute);
+            ExecuteCommand("UPDATE Player SET Experience = " + PlayerExperience.ToString() + " " +
+                 "WHERE Class = '" + Class.ToString() + "'", QueryType.NonExecute);
+            ExecuteCommand("UPDATE Player SET Gold = " + PlayerGold.ToString() + " " +
+                 "WHERE Class = '" + Class.ToString() + "'", QueryType.NonExecute);
+            ExecuteCommand("UPDATE Player SET Progress = '" + PlayerProgress + "' " +
+                 "WHERE Class = '" + Class.ToString() + "'", QueryType.NonExecute);
+            
         }
 
         #region Query entries

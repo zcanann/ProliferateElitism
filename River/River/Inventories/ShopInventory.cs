@@ -38,7 +38,7 @@ namespace River
             // Update item ownership in the database
             UpdateOwnership(Source, SourceIndex, Destination, DestinationIndex);
 
-            long GoldChange = 0;
+            Int32 GoldChange = 0;
 
             if (Destination.Items[DestinationIndex] != Item.None)
                 if (Destination == LevelPTR.Player.Inventory)
@@ -70,6 +70,51 @@ namespace River
             //Fill first row with blue items
             //for (int ecx = 0; ecx < ShopRowSize * 4; ecx++)
             //    this.Items[ecx] = GetRandomBlueItem(PlayerLevel);
+
+            // Clear items
+            GameDB.DeleteInventoryFromDataBase(InventoryID);
+            GameDB.RemoveUnusedInventories();
+
+            // Re-add inventory
+            GameDB.InsertInventory(InventoryID);
+
+            GenerateDrops(PlayerLevel, 16);
+        }
+
+        public virtual void GenerateDrops(int BaseLevel, int AmountGuarenteed = 0)
+        {
+            bool Guarenteed = false;
+            int NextIndex = 0;
+
+            for (int ecx = 0; ecx < this.Items.Length; ecx++)
+            {
+                if (ecx < AmountGuarenteed)
+                    Guarenteed = true;
+                else
+                    Guarenteed = false;
+
+                this.Items[NextIndex] = GetRandomItem(BaseLevel, Guarenteed);
+                if (this.Items[NextIndex] != Item.None)
+                    NextIndex++;
+            }
+
+        }
+
+        protected virtual Item GetRandomItem(int BaseLevel, bool IsGuarenteed)
+        {
+            Item ReturnItem = Item.None;
+
+            if (IsGuarenteed)
+            {
+                ReturnItem = GameDB.AddRandomItem(InventoryID, BaseLevel);
+
+                if (ReturnItem == Item.None)
+                {
+                    throw new Exception("Something went wrong");
+                }
+            }
+
+            return ReturnItem;
         }
 
         public override void Draw(SpriteBatch SpriteBatch)

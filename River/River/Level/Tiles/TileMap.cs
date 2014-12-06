@@ -296,9 +296,16 @@ namespace River
 
         #endregion
 
+        public void LoadSpecificMap(Int32 RoomSet, Int32 RoomID)
+        {
+            this.RoomID = RoomID;
+            this.RoomSetID = RoomSet;
+
+            BeginLoad();
+        }
+
         public void LoadNextMap()
         {
-
             RoomID++;
 
             if (RoomID >= Rooms[RoomSetID].Length)
@@ -310,6 +317,11 @@ namespace River
             if (RoomSetID >= Rooms.Length)
                 throw new Exception("No more rooms");
 
+            BeginLoad();   
+        }
+
+        private void BeginLoad()
+        {
             Resize(Rooms[RoomSetID][RoomID].Width(), Rooms[RoomSetID][RoomID].Height(), -1);
 
             //TODO: May need to do .CopyTo if we start altering data

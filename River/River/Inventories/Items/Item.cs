@@ -80,9 +80,9 @@ namespace River
         public float AttackSpeedBonus;
 
         public string[] ItemInfo;
-        public long SellPrice;
-        public long BuyPrice;
-        public long EnchantPrice;
+        public Int32 SellPrice;
+        public Int32 BuyPrice;
+        public Int32 EnchantPrice;
 
         public int Armor
         {
@@ -114,10 +114,43 @@ namespace River
             this.AttackSpeedBonus = AttackSpeedBonus;
             this.ItemID = ItemID;
 
+            this.SetQuality();
+
             //this.TryGiveBuff();
             this.SetIcon();
             this.SetPrice();
             this.SetText();
+
+
+        }
+
+        private void SetQuality()
+        {
+            Int32 AttributeCount = 0;
+            Int32 AttributeVal = (Armor + Primary + Vitality + Attack) / 5;
+
+            if (Armor > 0)
+                AttributeCount++;
+            if (Primary > 0)
+                AttributeCount++;
+            if (Vitality > 0)
+                AttributeCount++;
+            if (Attack > 0)
+                AttributeCount++;
+
+            if (AttributeCount == 0)
+                return;
+
+            AttributeVal = (AttributeVal / AttributeCount) - ItemLevel;
+
+            if (AttributeVal >= 3)
+                Quality = QualityType.Orange;
+            else if (AttributeVal == 2)
+                Quality = QualityType.Yellow;
+            else if (AttributeVal == 1)
+                Quality = QualityType.Blue;
+            else
+                Quality = QualityType.White;
         }
 
         public static void LoadContent(ContentManager Content)
@@ -261,14 +294,48 @@ namespace River
 
         public void SetPrice()
         {
-            BuyPrice = (long)(((int)Quality + 1) * (Vitality + Primary + Armor + (int)Attack + ItemLevel));
+            BuyPrice = (Int32)(((int)Quality + 1) * (Vitality + Primary + Armor + (int)Attack + ItemLevel));
 
             SellPrice = BuyPrice / 4;
 
             EnchantPrice = BuyPrice * 8;
         }
 
-        protected virtual void SetIcon() { } //Overloads take care of this
+        protected virtual void SetIcon()
+        {
+            switch (Slot)
+            {
+                case SlotType.Amulet:
+                    IconTexture = AmuletIcon[0];
+                    break;
+                case SlotType.Chest:
+                    IconTexture = ChestIcon[0];
+                    break;
+                case SlotType.Feet:
+                    IconTexture = FeetIcon[0];
+                    break;
+                case SlotType.Hands:
+                    IconTexture = HandsIcon[0];
+                    break;
+                case SlotType.Head:
+                    IconTexture = HeadIcon[0];
+                    break;
+                case SlotType.Legs:
+                    IconTexture = LegsIcon[0];
+                    break;
+                case SlotType.Offhand:
+                    IconTexture = OffhandIcon[0];
+                    break;
+                case SlotType.Ring:
+                    IconTexture = RingIcon[0];
+                    break;
+                case SlotType.Weapon:
+                    IconTexture = WeaponIcon[0];
+                    break;
+                case SlotType.None:
+                    throw new Exception("shouldnt have a none");
+            }
+        } //Overloads take care of this
 
 
         /*public virtual void RandomizeStats(int EnemyLevel)

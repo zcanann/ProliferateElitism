@@ -68,7 +68,7 @@ namespace River
             this.Class = Class;
             Skill = new Skill(LevelPTR, Class, this);
             Inventory = new StandardInventory(GameDB.GetPlayerInventoryID(Class.ToString()));
-            Equipment = new Equipment(LevelPTR, GameDB.GetEquipmentInventoryID());
+            Equipment = new Equipment(LevelPTR, GameDB.GetEquipmentInventoryID(Class));
             SetStatText();
         }
 
@@ -136,6 +136,14 @@ namespace River
             SpriteAnimation.IsAnimating = true;
 
             LoadGeneralContent(Content, Graphics);
+        }
+
+        public void EquipAllItems()
+        {
+            for (int ecx = 0; ecx < Equipment.Items.Length; ecx++ )
+            {
+                AddEquipmentStats(Equipment.Items[ecx]);
+            }
         }
 
         public void AddEquipmentStats(Item Item)
@@ -423,9 +431,9 @@ namespace River
             }
         }
 
-        public void AddGoldExperience(long Gold, int KillExp)
+        public void AddGoldExperience(Int32 Gold, int KillExp)
         {
-            Gold = (long)(Gold * (1f + GoldFind));
+            Gold = (Int32)(Gold * (1f + GoldFind));
             this.Gold += Gold;
             FloatingGoldNumbers.Add(new FloatingNumber("+" + Gold.ToString(), 1000f, false));
 

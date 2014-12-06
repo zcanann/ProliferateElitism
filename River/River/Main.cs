@@ -89,12 +89,27 @@ namespace River
 
         public void LoadGame(EntityType Class)
         {
+            Int32 PlayerID;
+            Int32 PlayerInventoryID;
+            Int32 PlayerLevel;
+            Int32 PlayerExperience;
+            Int32 PlayerGold;
+            String PlayerProgress;
+
+            GameDB.LoadPlayer(Class, out PlayerID, out PlayerInventoryID, out PlayerLevel, out PlayerExperience, out PlayerGold, out PlayerProgress);
+
             Item.LoadConditionalContent(Content, Class);
             Level.LoadLevel(false, Class);
             HUD.LoadConditionalContent(Content, Class);
             Level.LoadConditionalContent(Content, Graphics);
 
-            //Level.Player.Gold = GoldValue;
+            Level.Player.LevelValue = PlayerLevel;
+            Level.Player.Experience = PlayerExperience;
+            Level.Player.Gold = PlayerGold;
+
+            Level.LoadSpecificMap(Int32.Parse(PlayerProgress.Split('_')[0]), Int32.Parse(PlayerProgress.Split('_')[1]));
+
+            GameDB.UpdatePlayer(Class, PlayerLevel, PlayerExperience, PlayerGold, PlayerProgress);
         }
 
         //Start the editor
@@ -118,6 +133,9 @@ namespace River
 
             //Exit if requested to do so by title screen or ingame menu
             if (TitleScreen.CurrentScreen == TitleScreen.ScreenType.GameExited)
+                this.Exit();
+
+            if (MenuManager.ExitMenu.HasExited == true)
                 this.Exit();
 
             //Update title screen if open

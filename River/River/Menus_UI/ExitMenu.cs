@@ -7,11 +7,15 @@ namespace River
 {
     class ExitMenu : Menu
     {
+        public bool HasExited = false;
+
+
         public ExitMenu(MenuSideType MenuSideType)
             :base(MenuSideType)
         {
 
         }
 
+        public override void Open() { HasExited = true; }
     }
 }

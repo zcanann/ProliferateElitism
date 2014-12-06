@@ -20,9 +20,9 @@ namespace River
         private static InventoryMenu InventoryMenu;
         private static OptionsMenu OptionsMenu;
         private static SaveMenu SaveMenu;
-        private static ExitMenu ExitMenu;
+        public static ExitMenu ExitMenu;
         //Left Side
-        private static IngameMenu IngameMenu;
+        public static IngameMenu IngameMenu;
         private static EquipmentMenu EquipmentMenu;
         private static LootMenu LootMenu;
         private static EnchantingMenu EnchantingMenu;

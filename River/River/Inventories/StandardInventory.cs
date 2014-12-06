@@ -22,6 +22,7 @@ namespace River
         public StandardInventory(Int32 InventoryID)
         {
             this.InventoryID = InventoryID;
+
             Initialize();
         }
 
@@ -41,6 +42,16 @@ namespace River
 
             TextDrawPosition.X = BasePosition.X + Item.IconSize * 3;
             TextDrawPosition.Y = BasePosition.Y + (InventorySlots / InventoryRowSize) * Item.IconSize + Item.IconSize;
+        }
+
+        public virtual void LoadItems()
+        {
+            List<Object> LoadItems = GameDB.GetItemsFromInventory(InventoryID.ToString());
+
+            for (int ecx = 0; ecx < LoadItems.Count; ecx++)
+            {
+                this.Items[ecx] = GameDB.ReadItemFromDataBase((Int32)LoadItems[ecx]);
+            }
         }
 
         public bool IsEmpty()

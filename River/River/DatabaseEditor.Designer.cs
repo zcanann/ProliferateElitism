@@ -31,33 +31,33 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.enemyNameTB = new System.Windows.Forms.TextBox();
+            this.addEnemyButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gameObjectNameTB = new System.Windows.Forms.TextBox();
+            this.addGameObjectButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.addItemButton = new System.Windows.Forms.Button();
+            this.armorNUD = new System.Windows.Forms.NumericUpDown();
+            this.attackNUD = new System.Windows.Forms.NumericUpDown();
+            this.attackSpeedNUD = new System.Windows.Forms.NumericUpDown();
+            this.primaryNUD = new System.Windows.Forms.NumericUpDown();
+            this.vitalityNUD = new System.Windows.Forms.NumericUpDown();
             this.levelNUD = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
             this.slotComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.itemNameTB = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.vitalityNUD = new System.Windows.Forms.NumericUpDown();
-            this.primaryNUD = new System.Windows.Forms.NumericUpDown();
-            this.attackSpeedNUD = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.attackNUD = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.armorNUD = new System.Windows.Forms.NumericUpDown();
-            this.addItemButton = new System.Windows.Forms.Button();
             this.deleteItemButton = new System.Windows.Forms.Button();
-            this.addGameObjectButton = new System.Windows.Forms.Button();
-            this.addEnemyButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.itemIDNUD = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.enemyIDNUD = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
@@ -69,12 +69,12 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.levelNUD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vitalityNUD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.primaryNUD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attackSpeedNUD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attackNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.armorNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attackNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attackSpeedNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.primaryNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vitalityNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.levelNUD)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemIDNUD)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -111,6 +111,16 @@
             this.enemyNameTB.Size = new System.Drawing.Size(100, 20);
             this.enemyNameTB.TabIndex = 1;
             // 
+            // addEnemyButton
+            // 
+            this.addEnemyButton.Location = new System.Drawing.Point(73, 45);
+            this.addEnemyButton.Name = "addEnemyButton";
+            this.addEnemyButton.Size = new System.Drawing.Size(75, 23);
+            this.addEnemyButton.TabIndex = 7;
+            this.addEnemyButton.Text = "Add Enemy";
+            this.addEnemyButton.UseVisualStyleBackColor = true;
+            this.addEnemyButton.Click += new System.EventHandler(this.addEnemyButton_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
@@ -139,6 +149,16 @@
             this.gameObjectNameTB.Size = new System.Drawing.Size(100, 20);
             this.gameObjectNameTB.TabIndex = 0;
             // 
+            // addGameObjectButton
+            // 
+            this.addGameObjectButton.Location = new System.Drawing.Point(77, 45);
+            this.addGameObjectButton.Name = "addGameObjectButton";
+            this.addGameObjectButton.Size = new System.Drawing.Size(75, 23);
+            this.addGameObjectButton.TabIndex = 7;
+            this.addGameObjectButton.Text = "Add Object";
+            this.addGameObjectButton.UseVisualStyleBackColor = true;
+            this.addGameObjectButton.Click += new System.EventHandler(this.addGameObjectButton_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.addItemButton);
@@ -165,12 +185,96 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Item";
             // 
+            // addItemButton
+            // 
+            this.addItemButton.Location = new System.Drawing.Point(240, 122);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemButton.TabIndex = 4;
+            this.addItemButton.Text = "Add Item";
+            this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            // 
+            // armorNUD
+            // 
+            this.armorNUD.Location = new System.Drawing.Point(213, 44);
+            this.armorNUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.armorNUD.Name = "armorNUD";
+            this.armorNUD.Size = new System.Drawing.Size(102, 20);
+            this.armorNUD.TabIndex = 6;
+            // 
+            // attackNUD
+            // 
+            this.attackNUD.Location = new System.Drawing.Point(213, 70);
+            this.attackNUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.attackNUD.Name = "attackNUD";
+            this.attackNUD.Size = new System.Drawing.Size(102, 20);
+            this.attackNUD.TabIndex = 6;
+            // 
+            // attackSpeedNUD
+            // 
+            this.attackSpeedNUD.Location = new System.Drawing.Point(213, 96);
+            this.attackSpeedNUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.attackSpeedNUD.Name = "attackSpeedNUD";
+            this.attackSpeedNUD.Size = new System.Drawing.Size(102, 20);
+            this.attackSpeedNUD.TabIndex = 6;
+            // 
+            // primaryNUD
+            // 
+            this.primaryNUD.Location = new System.Drawing.Point(54, 96);
+            this.primaryNUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.primaryNUD.Name = "primaryNUD";
+            this.primaryNUD.Size = new System.Drawing.Size(102, 20);
+            this.primaryNUD.TabIndex = 6;
+            // 
+            // vitalityNUD
+            // 
+            this.vitalityNUD.Location = new System.Drawing.Point(54, 70);
+            this.vitalityNUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.vitalityNUD.Name = "vitalityNUD";
+            this.vitalityNUD.Size = new System.Drawing.Size(102, 20);
+            this.vitalityNUD.TabIndex = 6;
+            // 
             // levelNUD
             // 
             this.levelNUD.Location = new System.Drawing.Point(54, 44);
+            this.levelNUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.levelNUD.Name = "levelNUD";
             this.levelNUD.Size = new System.Drawing.Size(102, 20);
             this.levelNUD.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(170, 46);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Armor:";
             // 
             // slotComboBox
             // 
@@ -191,6 +295,15 @@
             this.slotComboBox.Size = new System.Drawing.Size(102, 21);
             this.slotComboBox.TabIndex = 5;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(166, 72);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Attack:";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -199,6 +312,42 @@
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Slot:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(162, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "AtkSpd:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Primary:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Vitality:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Level:";
             // 
             // label2
             // 
@@ -216,105 +365,6 @@
             this.itemNameTB.Size = new System.Drawing.Size(100, 20);
             this.itemNameTB.TabIndex = 3;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Level:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Vitality:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Primary:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(162, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "AtkSpd:";
-            // 
-            // vitalityNUD
-            // 
-            this.vitalityNUD.Location = new System.Drawing.Point(54, 70);
-            this.vitalityNUD.Name = "vitalityNUD";
-            this.vitalityNUD.Size = new System.Drawing.Size(102, 20);
-            this.vitalityNUD.TabIndex = 6;
-            // 
-            // primaryNUD
-            // 
-            this.primaryNUD.Location = new System.Drawing.Point(54, 96);
-            this.primaryNUD.Name = "primaryNUD";
-            this.primaryNUD.Size = new System.Drawing.Size(102, 20);
-            this.primaryNUD.TabIndex = 6;
-            // 
-            // attackSpeedNUD
-            // 
-            this.attackSpeedNUD.Location = new System.Drawing.Point(213, 96);
-            this.attackSpeedNUD.Name = "attackSpeedNUD";
-            this.attackSpeedNUD.Size = new System.Drawing.Size(102, 20);
-            this.attackSpeedNUD.TabIndex = 6;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 72);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Attack:";
-            // 
-            // attackNUD
-            // 
-            this.attackNUD.Location = new System.Drawing.Point(213, 70);
-            this.attackNUD.Name = "attackNUD";
-            this.attackNUD.Size = new System.Drawing.Size(102, 20);
-            this.attackNUD.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(170, 46);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Armor:";
-            // 
-            // armorNUD
-            // 
-            this.armorNUD.Location = new System.Drawing.Point(213, 44);
-            this.armorNUD.Name = "armorNUD";
-            this.armorNUD.Size = new System.Drawing.Size(102, 20);
-            this.armorNUD.TabIndex = 6;
-            // 
-            // addItemButton
-            // 
-            this.addItemButton.Location = new System.Drawing.Point(240, 122);
-            this.addItemButton.Name = "addItemButton";
-            this.addItemButton.Size = new System.Drawing.Size(75, 23);
-            this.addItemButton.TabIndex = 4;
-            this.addItemButton.Text = "Add Item";
-            this.addItemButton.UseVisualStyleBackColor = true;
-            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
-            // 
             // deleteItemButton
             // 
             this.deleteItemButton.Location = new System.Drawing.Point(9, 39);
@@ -324,26 +374,6 @@
             this.deleteItemButton.Text = "Delete Item";
             this.deleteItemButton.UseVisualStyleBackColor = true;
             this.deleteItemButton.Click += new System.EventHandler(this.deleteItemButton_Click);
-            // 
-            // addGameObjectButton
-            // 
-            this.addGameObjectButton.Location = new System.Drawing.Point(77, 45);
-            this.addGameObjectButton.Name = "addGameObjectButton";
-            this.addGameObjectButton.Size = new System.Drawing.Size(75, 23);
-            this.addGameObjectButton.TabIndex = 7;
-            this.addGameObjectButton.Text = "Add Object";
-            this.addGameObjectButton.UseVisualStyleBackColor = true;
-            this.addGameObjectButton.Click += new System.EventHandler(this.addGameObjectButton_Click);
-            // 
-            // addEnemyButton
-            // 
-            this.addEnemyButton.Location = new System.Drawing.Point(73, 45);
-            this.addEnemyButton.Name = "addEnemyButton";
-            this.addEnemyButton.Size = new System.Drawing.Size(75, 23);
-            this.addEnemyButton.TabIndex = 7;
-            this.addEnemyButton.Text = "Add Enemy";
-            this.addEnemyButton.UseVisualStyleBackColor = true;
-            this.addEnemyButton.Click += new System.EventHandler(this.addEnemyButton_Click);
             // 
             // groupBox4
             // 
@@ -357,6 +387,13 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Item";
             // 
+            // itemIDNUD
+            // 
+            this.itemIDNUD.Location = new System.Drawing.Point(33, 13);
+            this.itemIDNUD.Name = "itemIDNUD";
+            this.itemIDNUD.Size = new System.Drawing.Size(51, 20);
+            this.itemIDNUD.TabIndex = 7;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -365,13 +402,6 @@
             this.label10.Size = new System.Drawing.Size(21, 13);
             this.label10.TabIndex = 6;
             this.label10.Text = "ID:";
-            // 
-            // itemIDNUD
-            // 
-            this.itemIDNUD.Location = new System.Drawing.Point(33, 13);
-            this.itemIDNUD.Name = "itemIDNUD";
-            this.itemIDNUD.Size = new System.Drawing.Size(51, 20);
-            this.itemIDNUD.TabIndex = 7;
             // 
             // groupBox5
             // 
@@ -469,12 +499,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.levelNUD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vitalityNUD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.primaryNUD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attackSpeedNUD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attackNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.armorNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attackNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attackSpeedNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.primaryNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vitalityNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.levelNUD)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemIDNUD)).EndInit();

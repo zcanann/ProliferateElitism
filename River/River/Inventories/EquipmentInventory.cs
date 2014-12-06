@@ -38,6 +38,17 @@ namespace River
             TextDrawPosition.Y = BasePosition.Y + (InventorySlots / InventoryRowSize) * Item.IconSize + Item.IconSize;
         }
 
+        public override void LoadItems()
+        {
+            List<Object> LoadItems = GameDB.GetItemsFromInventory(InventoryID.ToString());
+            Item Next;
+            for (int ecx = 0; ecx < LoadItems.Count; ecx++)
+            {
+                Next = GameDB.ReadItemFromDataBase((Int32)LoadItems[ecx]);
+                this.Items[(int)Next.Slot] = Next;
+            }
+        }
+
         public static void LoadContent(ContentManager Content)
         {
             GrayedItems[(int)Item.SlotType.Ring] = Content.Load<Texture2D>(@"Textures\Inventory\Grayed\RingGrayed");

@@ -48,12 +48,22 @@ namespace River
                 LoadNextMap();
                 Player = new Player(LevelMap.PlayerSpawn, this, Class);
                 LoadNextMapPt2();
+
+                Player.Inventory.LoadItems();
+                Player.Equipment.LoadItems();
+                StorageInventory.LoadItems();
+                ShopInventory.LoadItems();
+                EnchantingInventory.LoadItems();
+
+                Player.EquipAllItems();
             }
             else
             {
                 Enemies = new Enemy[0];
                 Player = new Player(Vector2.Zero, this, EntityType.Warrior);
             }
+
+            
         }
 
 
@@ -65,6 +75,7 @@ namespace River
             Tile.LoadContent(Content);
             //Load map content
             LevelMap.LoadContent(Content);
+
         }
 
         public void LoadConditionalContent(ContentManager Content, IGraphicsDeviceService Graphics)
@@ -118,7 +129,7 @@ namespace River
 
         }
 
-        public void GivePlayerGoldExp(long Gold, int Experience)
+        public void GivePlayerGoldExp(Int32 Gold, int Experience)
         {
             Player.AddGoldExperience(Gold, Experience);
         }
@@ -172,23 +183,32 @@ namespace River
             return false;
         }
 
+        public void LoadSpecificMap(Int32 RoomSet, Int32 RoomID)
+        {
+            LevelMap.LoadSpecificMap(RoomSet, RoomID);
+            ClearEnemiesObjects();
+        }
+
         private void LoadNextMap()
         {
-            LevelMap.LoadNextMap();
             ShopInventory = new ShopInventory(this, GameDB.GetShopInventoryID());
+            LevelMap.LoadNextMap();
+            ClearEnemiesObjects();
+        }
 
+        private void ClearEnemiesObjects()
+        {
             GameDB.RemoveAllObjects();
             GameDB.RemoveAllEnemies();
             GameDB.RemoveUnusedInventories();
 
             LoadObjects();
             LoadEnemies();
-
         }
 
         private void LoadObjects()
         {
-            Int32 ObjectCount = LevelMap.EnemySpawn.Length;
+            Int32 ObjectCount = LevelMap.ChestSpawns.Length;
 
             GameDB.CreateLevelObjects(ObjectCount, new Int32[] { 1, 2 });
             List<Object> ObjectTypes = GameDB.GetObjects();
@@ -293,6 +313,7 @@ namespace River
                 Player.SpriteAnimation.Position = LevelMap.PlayerSpawn;
             ShopInventory.GenerateShopItems(Player.LevelValue);
             Player.UpdateCamera();
+            GameDB.UpdatePlayer(Player.Class, Player.LevelValue, Player.Experience, Player.Gold, LevelMap.RoomSetID.ToString() + "_" + LevelMap.RoomID.ToString());
         }
 
 

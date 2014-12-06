@@ -34,6 +34,8 @@ namespace River
         private Texture2D HorizontalSelect;
         public static Texture2D VerticalSelect;
 
+        private bool IsLoading = false;
+
         public ScreenType CurrentScreen;
 
         private Main MainPTR;
@@ -108,12 +110,12 @@ namespace River
                         switch (TitleSelection)
                         {
                             case TitleSelectionType.NewGame:
+                                IsLoading = false;
                                 CurrentScreen = ScreenType.CharacterSelect;
                                 break;
                             case TitleSelectionType.LoadGame:
-                                //TODO && TEMP
-                                CurrentScreen = ScreenType.Closed;
-                                MainPTR.LoadGame(CharacterSelection);
+                                IsLoading = true;
+                                CurrentScreen = ScreenType.CharacterSelect;
                                 break;
                             case TitleSelectionType.Quit:
                                 CurrentScreen = ScreenType.GameExited;
@@ -147,7 +149,14 @@ namespace River
                         (Main.KeyboardState.IsKeyDown(Keys.Enter) && !Main.LastKeyboardState.IsKeyDown(Keys.Enter)))
                     {
                         CurrentScreen = ScreenType.Closed;
-                        MainPTR.NewGame(CharacterSelection);
+                        if (!IsLoading)
+                        {
+                            MainPTR.NewGame(CharacterSelection);
+                        }
+                        else
+                        {
+                            MainPTR.LoadGame(CharacterSelection);
+                        }
                         return;
                     }
                     else if ((Main.GamePadState.IsButtonDown(Buttons.B) && !Main.LastGamePadState.IsButtonDown(Buttons.B)) ||

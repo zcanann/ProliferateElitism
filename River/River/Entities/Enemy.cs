@@ -70,7 +70,7 @@ namespace River
 
 
             Inventory = new LootInventory(GameDB.GetEnemyInventoryID(MyEnemyID));
-            Gold = (long)Random.Next(LevelValue, LevelValue * 15);
+            Gold = (Int32)Random.Next(LevelValue, LevelValue * 15);
             Experience = ExpForKill;
 
             int Size = 128;

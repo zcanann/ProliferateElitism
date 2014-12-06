@@ -15,7 +15,7 @@ namespace River
     class IngameMenu : Menu
     {
         //Selection Type
-        private enum IngameMenuSelectionType
+        public enum IngameMenuSelectionType
         {
             Return,
             Inventory,
@@ -107,8 +107,12 @@ namespace River
                         break;
                     case IngameMenuSelectionType.Save:
                         //MenuManager.OpenSaveMenu(true);
+                        GameDB.UpdatePlayer(LevelPTR.Player.Class, LevelPTR.Player.LevelValue, LevelPTR.Player.Experience, LevelPTR.Player.Gold,
+                            LevelPTR.LevelMap.RoomSetID.ToString() + "_" + LevelPTR.LevelMap.RoomID.ToString());
+                        MenuManager.CloseMenu(this);
+
                         //Temporary demo save
-                        Random DynamicSaveRand = new Random((int)LevelPTR.Player.Gold);
+                        /*Random DynamicSaveRand = new Random((int)LevelPTR.Player.Gold);
 
                         //Get gold byte data
                         byte[] GoldBytes = BitConverter.GetBytes((int)LevelPTR.Player.Gold);
@@ -184,14 +188,16 @@ namespace River
                             // Error
                             Console.WriteLine("Exception caught in process: {0}",
                                               _Exception.ToString());
-                        }
+                        }*/
 
                         break;
                     case IngameMenuSelectionType.Options:
-                        MenuManager.OpenOptionsMenu(true);
+                        //MenuManager.OpenOptionsMenu(true);
+                        MenuManager.CloseMenu(this);
                         break;
                     case IngameMenuSelectionType.Quit:
                         MenuManager.OpenExitMenu(true);
+                        
                         break;
                 }
 
